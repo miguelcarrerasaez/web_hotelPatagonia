@@ -1,22 +1,72 @@
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden bg-ph-hueso">
-      <img
-        src="https://placehold.co/1200x900/292929/FFFFFF?text=Bosque+Patagonia"
-        alt="Bosque de Patagonia"
-        className="absolute inset-0 w-full h-full object-cover"
+    <section className="relative min-h-screen overflow-hidden bg-ph-oscuro">
+      {/* Video de fondo - ocupa toda el área con object-cover y capa bajo el contenido */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+        autoPlay
+        loop
+        muted
+        playsInline
         aria-hidden="true"
-      />
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+        Tu navegador no admite el elemento de video.
+      </video>
 
-      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+      {/* Overlay de oscurecimiento para legibilidad del texto */}
+      <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
 
-      <div className="absolute bottom-16 left-8 z-10 text-white">
-        <h1 className="font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-          Tu refugio privado al pie de la montaña
-        </h1>
-        <p className="mt-4 font-sans text-lg sm:text-xl max-w-md text-white/90 leading-relaxed">
-          Una experiencia boutique en el coraz&oacute;n de Ays&eacute;n.
-        </p>
+      {/* Contenido principal - posicionado naturalmente con Flexbox */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col px-6">
+        {/* Barra superior: Menú, Idioma y Reservar */}
+        <div className="flex w-full justify-between items-start gap-4 pb-6">
+          <div className="flex items-center gap-2">
+            <button type="button" className="flex items-center gap-2" aria-label="Menú">
+              <div className="relative size-6 overflow-hidden">
+                <span className="w-5 h-[1px] bg-ph-hueso" />
+                <span className="w-5 h-[1px] bg-ph-hueso mt-1" />
+                <span className="w-5 h-[1px] bg-ph-hueso mt-1" />
+              </div>
+              <span className="text-ph-hueso text-base font-sans font-normal leading-5">
+                Menú
+              </span>
+            </button>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              <span className="text-ph-hueso text-base font-sans font-normal leading-5">
+                ES
+              </span>
+              <div className="size-6 relative overflow-hidden">
+                <div className="w-1.5 h-3 bg-ph-hueso" />
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="px-6 py-3 border border-ph-hueso flex items-center justify-center gap-2.5"
+            aria-label="Reservar"
+          >
+            <span className="text-ph-hueso text-base font-sans font-normal leading-5">
+              Reservar
+            </span>
+          </button>
+        </div>
+
+        {/* Contenido Hero - se empuja al fondo con flex-grow y justify-end */}
+        <div className="flex-grow flex flex-col justify-end items-start gap-5 pb-10">
+          <h1 className="font-serif text-ph-hueso text-4xl font-normal leading-tight">
+            Tu refugio privado<br />
+            al pie de la montaña
+          </h1>
+          <p className="font-sans text-ph-hueso text-base font-normal leading-5">
+            Una experiencia boutique en el corazón de Aysén, donde la serenidad de
+            la arquitectura se integra con la inmensidad de la Patagonia.
+          </p>
+        </div>
       </div>
     </section>
   );
