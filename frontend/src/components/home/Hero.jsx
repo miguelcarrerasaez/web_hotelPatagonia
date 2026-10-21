@@ -18,10 +18,12 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
 
       {/* Contenido principal - posicionado naturalmente con Flexbox */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col px-6">
+      <div className="relative z-10 w-full min-h-screen flex flex-col px-6 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-12 pb-10 md:pb-16 lg:pb-20">
         {/* Barra superior: Menú, Idioma y Reservar */}
-        <div className="flex w-full justify-between items-start gap-4 pb-6">
-          <div className="flex items-center gap-2">
+        <div
+          className="flex w-full justify-between items-start md:items-center gap-4 md:gap-8 pb-6 md:pb-10 lg:pb-12"
+        >
+          <div className="flex items-center gap-2 md:gap-3">
             <button type="button" className="flex items-center gap-2" aria-label="Menú">
               <div className="relative size-6 overflow-hidden">
                 <span className="w-5 h-[1px] bg-ph-hueso" />
@@ -57,12 +59,12 @@ export function Hero() {
         </div>
 
         {/* Contenido Hero - se empuja al fondo con flex-grow y justify-end */}
-        <div className="flex-grow flex flex-col justify-end items-start gap-5 pb-10">
-          <h1 className="font-serif text-ph-hueso text-4xl font-normal leading-tight">
+        <div className="flex-grow flex flex-col justify-end items-start gap-5 md:gap-8 pb-10 md:pb-16 lg:pb-20">
+          <h1 className="font-serif text-ph-hueso text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
             Tu refugio privado<br />
             al pie de la montaña
           </h1>
-          <p className="font-sans text-ph-hueso text-base font-normal leading-5">
+          <p className="font-sans text-ph-hueso text-base md:text-lg lg:text-2xl font-normal leading-5 md:leading-7">
             Una experiencia boutique en el corazón de Aysén, donde la serenidad de
             la arquitectura se integra con la inmensidad de la Patagonia.
           </p>
