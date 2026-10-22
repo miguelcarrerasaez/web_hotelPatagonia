@@ -1,25 +1,22 @@
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-transparent pt-32 pb-16 lg:pb-24">
-      {/* Video de fondo - ocupa toda el área con object-cover y capa bajo el contenido */}
+    <section className="relative w-full min-h-screen flex flex-col justify-end pt-32 pb-16 lg:pb-24 bg-ph-oscuro overflow-hidden">
+      {/* Capa 0 - Video de fondo */}
       <video
-        className="absolute inset-0 w-full h-full object-cover -z-20"
+        src="/videos/hero.mp4"
         autoPlay
         loop
         muted
         playsInline
-        poster="https://placehold.co/1920x1080/1F6340/FFFFFF?text=Fondo+Bosque+Patagonia"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         aria-hidden="true"
-      >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-        Tu navegador no admite el elemento de video.
-      </video>
+      />
 
-      {/* Overlay de oscurecimiento para legibilidad del texto */}
-      <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
+      {/* Capa 10 - Overlay oscuro para legibilidad */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10 pointer-events-none" aria-hidden="true" />
 
-      {/* Contenido Hero - anclado abajo con justify-end del section */}
-      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-12">
+      {/* Capa 20 - Contenido Hero */}
+      <div className="relative z-20 flex-grow flex flex-col justify-end px-6 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-12 pb-10 md:pb-16 lg:pb-20">
         <h1 className="font-serif text-ph-hueso text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
           Tu refugio privado<br />
           al pie de la montaña
