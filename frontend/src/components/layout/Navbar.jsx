@@ -1,15 +1,13 @@
-import { useState } from 'react';
-
 export function Navbar({ lang, setLang }) {
   const toggleLang = () => {
     setLang((prev) => (prev === 'ES' ? 'EN' : 'ES'));
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-[#e5e4e7] bg-ph-hueso/95 backdrop-blur">
+    <header className="fixed w-full top-0 z-50 bg-transparent text-ph-hueso">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <a
-          className="flex items-center gap-3 text-[#292929] font-semibold"
+          className="flex items-center gap-3 text-white font-semibold"
           href="#/"
           aria-label="hotelPatagonia - Inicio"
         >
@@ -26,7 +24,7 @@ export function Navbar({ lang, setLang }) {
         </a>
 
         <nav
-          className="flex items-center gap-2 text-sm font-medium text-[#292929]"
+          className="flex items-center gap-2 text-sm font-medium text-white"
           aria-label="Navegación principal"
         >
           {['Inicio', 'Habitaciones', 'Experiencias', 'Gastronomía', 'Sobre nosotros'].map((item) => (
@@ -39,7 +37,7 @@ export function Navbar({ lang, setLang }) {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="btn-reservar text-sm"
+            className="btn-reservar text-sm text-white"
             onClick={toggleLang}
             aria-label={lang === 'ES' ? 'Cambiar a inglés' : 'Cambiar a español'}
           >
@@ -48,7 +46,7 @@ export function Navbar({ lang, setLang }) {
 
           <button
             type="button"
-            className="btn-reservar"
+            className="btn-reservar text-white"
             aria-label="Reservar ahora"
           >
             Reservar

@@ -1,13 +1,14 @@
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-ph-oscuro">
+    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-ph-oscuro pt-32 pb-16 lg:pb-24">
       {/* Video de fondo - ocupa toda el área con object-cover y capa bajo el contenido */}
       <video
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover -z-20"
         autoPlay
         loop
         muted
         playsInline
+        poster="https://placehold.co/1920x1080/1F6340/FFFFFF?text=Fondo+Bosque+Patagonia"
         aria-hidden="true"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
@@ -18,7 +19,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/40 -z-10" aria-hidden="true" />
 
       {/* Contenido principal - posicionado naturalmente con Flexbox */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col px-6 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-12 pb-10 md:pb-16 lg:pb-20">
+      <div className="relative z-10 w-full flex-grow flex flex-col px-6 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-12">
         {/* Barra superior: Menú, Idioma y Reservar */}
         <div
           className="flex w-full justify-between items-start md:items-center gap-4 md:gap-8 pb-6 md:pb-10 lg:pb-12"
