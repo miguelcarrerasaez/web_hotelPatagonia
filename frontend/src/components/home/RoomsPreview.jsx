@@ -9,6 +9,9 @@ export function RoomsPreview() {
           <h2 className="font-serif text-ph-taupe text-3xl font-bold leading-tight sm:text-4xl mt-1">
             Cuatro formas de imaginar tu estancia
           </h2>
+          <p className="font-sans text-ph-taupe/80 text-sm sm:text-base leading-relaxed">
+            Refugios de diseño contemporáneo concebidos para el descanso profundo. Cada espacio es una extensión cálida y silenciosa de la Patagonia, donde las texturas nobles y el paisaje de Aysén se integran para crear una experiencia de desconexión absoluta.
+          </p>
         </div>
 
         <div className="mt-10 relative">
