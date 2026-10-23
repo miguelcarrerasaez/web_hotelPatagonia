@@ -2,18 +2,18 @@ export function Ecosystem() {
   const cards = [
     {
       title: 'Refugio',
-      text: 'Habitaciones dise&ntilde;adas para el descanso y la privacidad.',
-      img: 'https://placehold.co/400x500/292929/FFFFFF?text=Refugio',
+      text: 'Habitaciones diseñadas para el descanso y la privacidad.',
+      img: '/images/refugioHome.png',
     },
     {
-      title: 'Exploraci&oacute;n',
+      title: 'Exploración',
       text: 'Rutas guiadas por glaciares, bosques y estepa austral.',
-      img: 'https://placehold.co/400x500/292929/FFFFFF?text=Exploracion',
+      img: '/images/exploracionHome.png',
     },
     {
-      title: 'Gastronom&iacute;a',
+      title: 'Gastronomía',
       text: 'Sabores de la zona con productos locales y de temporada.',
-      img: 'https://placehold.co/400x500/292929/FFFFFF?text=Gastronomia',
+      img: '/images/gastronomiaHome.png',
     },
   ];
 
@@ -28,7 +28,7 @@ export function Ecosystem() {
             Un lugar. Tres maneras de sentirlo.
           </h2>
           <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
-            Descubre c&oacute;mo cada experiencia se entrelaza con el entorno natural.
+            Descubre cómo cada experiencia se entrelaza con el entorno natural.
           </p>
         </div>
 

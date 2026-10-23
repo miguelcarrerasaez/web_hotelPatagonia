@@ -17,11 +17,11 @@ export function Experiences() {
               Bienestar y tinajas
             </p>
             <h3 className="font-serif text-ph-taupe text-2xl font-bold leading-tight sm:text-3xl mt-1">
-              La pausa tambi&eacute;n es un viaje
+              La pausa también es un viaje
             </h3>
             <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
-              Sumergite en nuestras tinajas exteriores con vista al bosque y
-              dej&aacute; que el tiempo se detenga.
+              Sumérgete en nuestras tinajas exteriores con vista al bosque y
+              deja que el tiempo se detenga.
             </p>
             <a
               href="#experiencias"
@@ -43,7 +43,7 @@ export function Experiences() {
             </h3>
             <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
               Platos de autor con ingredientes de la Patagonia, maridaje de vinos
-              de la zona y atmosfera de caba&ntilde;a moderna.
+              de la zona y atmósfera de caba&ntilde;a moderna.
             </p>
             <a
               href="#gastronomia"

@@ -17,8 +17,8 @@ export function Home() {
       <Welcome />
       <Ecosystem />
       <RoomsPreview />
-      <Experiences />
       <CtaBanner />
+      <Experiences />
       <LocationMap />
       <Footer />
     </div>

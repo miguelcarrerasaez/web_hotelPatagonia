@@ -14,7 +14,7 @@ export function RoomsPreview() {
         <div className="mt-10 relative">
           <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-[#e5e4e7]">
             <img
-              src="https://placehold.co/1200x675/292929/FFFFFF?text=Refugio+Panorama"
+              src="/images/refugioPanoramaHome.jpg"
               alt="Refugio Panorama"
               className="w-full h-full object-cover"
             />
@@ -24,7 +24,7 @@ export function RoomsPreview() {
                 Refugio Panorama
               </h3>
               <p className="font-sans text-sm text-white/90 mb-4">
-                Ventanas de piso a techo con vista directa a la monta&ntilde;a y
+                Ventanas de piso a techo con vista directa a la montaña y
                 acceso privado a la terraza.
               </p>
               <a
