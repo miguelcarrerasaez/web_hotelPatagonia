@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function Navbar({ lang = 'ES', setLang, darkText = false }) {
+export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showExperiences, setShowExperiences] = useState(false);
 
@@ -9,7 +9,15 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
     setShowExperiences(false);
   };
 
-  // Color de texto dinámico: oscuro para páginas claras, blanco para sobre el video Hero
+  const handleNav = (path) => {
+    toggleMenu();
+    if (navigate) {
+      navigate(path);
+    } else {
+      window.location.href = path;
+    }
+  };
+
   const textColor = darkText ? 'text-[#2C3E35]' : 'text-white';
   const borderColor = darkText ? 'border-[#2C3E35]' : 'border-white';
   const burgerBg = darkText ? 'bg-[#2C3E35]' : 'bg-white';
@@ -18,9 +26,10 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
     <header className="absolute top-0 left-0 w-full z-50 bg-transparent px-6 md:px-12 lg:px-20 py-6 md:py-8">
       <div className="flex justify-between items-center max-w-[1440px] mx-auto relative">
         
-        {/* LADO IZQUIERDO */}
+        {/* LADO IZQUIERDO: Contenedor del Menú */}
         <div className="relative">
           
+          {/* Botón en estado cerrado */}
           {!isOpen && (
             <div className="flex items-center gap-4">
               <button
@@ -49,10 +58,11 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
             </div>
           )}
 
-          {/* DESPLEGABLE GLASS (Se mantiene oscuro/verde con desenfoque) */}
+          {/* Menú desplegable Glass que nace desde arriba */}
           {isOpen && (
             <div className="absolute -top-3 -left-4 w-72 sm:w-80 bg-[#1f2d26]/85 backdrop-blur-lg border border-white/15 p-5 sm:p-6 z-50 text-white shadow-2xl transition-all">
               
+              {/* Cabecera interna del menú */}
               <div className="flex items-center gap-4 mb-4 pb-3 border-b border-white/10">
                 <button
                   onClick={toggleMenu}
@@ -77,14 +87,21 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
                 </div>
               </div>
 
+              {/* Lista de navegación */}
               <nav>
                 <ul className="flex flex-col gap-3 font-sans text-sm font-medium tracking-wide">
+                  
+                  {/* 1. HABITACIONES */}
                   <li>
-                    <a href="/habitaciones" onClick={toggleMenu} className="hover:text-[#C88E4B] transition-colors block py-0.5">
+                    <button
+                      onClick={() => handleNav('/habitaciones')}
+                      className="hover:text-[#C88E4B] transition-colors text-left w-full py-0.5 cursor-pointer"
+                    >
                       Habitaciones
-                    </a>
+                    </button>
                   </li>
 
+                  {/* 2. EXPERIENCIAS */}
                   <li
                     onMouseEnter={() => setShowExperiences(true)}
                     onMouseLeave={() => setShowExperiences(false)}
@@ -106,34 +123,53 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
                       </svg>
                     </button>
 
+                    {/* Sub-opciones */}
                     <div
                       className={`flex flex-col gap-2 mt-1 ml-3 font-sans text-xs font-light text-white/85 overflow-hidden transition-all duration-300 ${
                         showExperiences ? 'max-h-40 opacity-100 py-1' : 'max-h-0 opacity-0'
                       }`}
                     >
-                      <a href="/experiencias/bienestar" onClick={toggleMenu} className="hover:text-white transition-colors">
+                      <button
+                        onClick={() => handleNav('/experiencias/bienestar')}
+                        className="hover:text-white transition-colors text-left cursor-pointer"
+                      >
                         · Bienestar y tinajas
-                      </a>
-                      <a href="/experiencias/expediciones" onClick={toggleMenu} className="hover:text-white transition-colors">
+                      </button>
+                      <button
+                        onClick={() => handleNav('/experiencias/expediciones')}
+                        className="hover:text-white transition-colors text-left cursor-pointer"
+                      >
                         · Expediciones y Tours (Salvaje Corazón)
-                      </a>
-                      <a href="/experiencias/pesca" onClick={toggleMenu} className="hover:text-white transition-colors">
+                      </button>
+                      <button
+                        onClick={() => handleNav('/experiencias/pesca')}
+                        className="hover:text-white transition-colors text-left cursor-pointer"
+                      >
                         · Pesca con Mosca / Fly fishing
-                      </a>
+                      </button>
                     </div>
                   </li>
 
+                  {/* 3. GASTRONOMÍA (BÒREK) */}
                   <li>
-                    <a href="/gastronomia" onClick={toggleMenu} className="hover:text-[#C88E4B] transition-colors block py-0.5">
+                    <button
+                      onClick={() => handleNav('/gastronomia')}
+                      className="hover:text-[#C88E4B] transition-colors text-left w-full py-0.5 cursor-pointer"
+                    >
                       Gastronomía (Bòrek)
-                    </a>
+                    </button>
                   </li>
 
+                  {/* 4. EL LODGE */}
                   <li>
-                    <a href="/lodge" onClick={toggleMenu} className="hover:text-[#C88E4B] transition-colors block py-0.5">
+                    <button
+                      onClick={() => handleNav('/lodge')}
+                      className="hover:text-[#C88E4B] transition-colors text-left w-full py-0.5 cursor-pointer"
+                    >
                       El Lodge
-                    </a>
+                    </button>
                   </li>
+
                 </ul>
               </nav>
 
@@ -142,7 +178,7 @@ export function Navbar({ lang = 'ES', setLang, darkText = false }) {
 
         </div>
 
-        {/* LADO DERECHO */}
+        {/* LADO DERECHO: Botón Reservar */}
         <div>
           <a
             href="#reservas"
