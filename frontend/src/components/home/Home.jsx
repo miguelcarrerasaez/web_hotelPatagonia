@@ -8,22 +8,18 @@ import { Experiences } from './Experiences';
 import { LocationMap } from './LocationMap';
 import { Footer } from '../layout/Footer';
 
-export function Home() {
+export function Home({ navigate }) {
   return (
-    <div className="min-h-screen bg-ph-hueso text-ph-taupe selection:bg-ph-verde selection:text-[#F8F7F1]">
-      {/* 1. Navbar con posición absoluta superpuesta al Hero */}
-      <Navbar lang="ES" setLang={() => {}} />
+    <div className="min-h-screen bg-[#F9F8F5] text-[#28211A]">
+      <Navbar lang="ES" setLang={() => {}} navigate={navigate} />
 
-      {/* 2. Flujo completo de la Landing Page según Figma */}
       <Hero />
       <Welcome />
-      <Ecosystem />
-      <RoomsPreview />
+      <Ecosystem navigate={navigate} />
+      <RoomsPreview navigate={navigate} />
       <CtaBanner />
       <Experiences />
       <LocationMap />
-
-      {/* 3. Cierre con el Footer de 3 columnas y logotipos */}
       <Footer />
     </div>
   );

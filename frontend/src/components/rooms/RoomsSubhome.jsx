@@ -35,26 +35,20 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#28211A]">
-      
-      {/* 1. Navbar con estilo oscuro para fondos claros */}
       <Navbar lang={lang} setLang={setLang} darkText={true} navigate={navigate} />
 
       <main className="pt-28 md:pt-36">
-        
-        {/* 2. HERO / CABECERA DE HABITACIONES */}
+        {/* HERO HABITACIONES */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            
-            {/* Foto Izquierda */}
             <div className="w-full h-[360px] sm:h-[440px] lg:h-[480px]">
               <img
-                src="/images/subHome.jpg"
+                src="/images/refugioHome.png"
                 alt="Habitaciones Refugio Patagonia House"
                 className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Columna Derecha de Texto */}
             <div className="flex flex-col items-start justify-center">
               <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-3">
                 HABITACIONES - REFUGIO
@@ -75,20 +69,17 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
                 Ver refugios y suites
               </a>
             </div>
-
           </div>
         </section>
 
-        {/* 3. CATÁLOGO DE HABITACIONES (Carrusel) */}
+        {/* CATÁLOGO DE HABITACIONES */}
         <div id="catalogo-habitaciones">
-          <RoomsPreview />
+          <RoomsPreview navigate={navigate} />
         </div>
 
-        {/* 4. SECCIÓN NUESTRO ECOSISTEMA DEL SUBHOME HABITACIONES */}
+        {/* NUESTRO ECOSISTEMA */}
         <section className="bg-[#F9F8F5] py-14">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            
-            {/* Encabezado con 32px de margen inferior hacia las cards */}
             <div className="mb-8 max-w-3xl">
               <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
                 NUESTRO ECOSISTEMA
@@ -101,7 +92,6 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               </p>
             </div>
 
-            {/* Grilla de 3 tarjetas fotográficas con bordes rectos */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {ecosystemCards.map((card, idx) => (
                 <a
@@ -115,10 +105,8 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Gradiente oscuro inferior para contraste del texto */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
                   
-                  {/* Textos sobre la fotografía */}
                   <div className="absolute bottom-6 left-6 right-6 text-white z-10">
                     <h3 className="font-serif text-2xl font-normal mb-1">
                       {card.title}
@@ -130,13 +118,10 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
                 </a>
               ))}
             </div>
-
           </div>
         </section>
-
       </main>
 
-      {/* 5. Footer Institucional */}
       <Footer />
     </div>
   );
