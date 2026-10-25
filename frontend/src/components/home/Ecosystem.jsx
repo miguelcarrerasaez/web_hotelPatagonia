@@ -1,19 +1,23 @@
 export function Ecosystem() {
+  // En Ecosystem.jsx, asegúrate de que la card Refugio apunte a /habitaciones:
   const cards = [
     {
       title: 'Refugio',
       text: 'El arte de la pausa y el silencio patagónico.',
-      img: '/images/refugioHome.png'
+      img: '/images/refugioHome.png',
+      link: '/habitaciones'
     },
     {
       title: 'Exploración',
       text: 'Sumérgete en la inmensidad salvaje de Aysén.',
-      img: '/images/exploracionHome.png'
+      img: '/images/exploracionHome.png',
+      link: '/experiencias/expediciones'
     },
     {
       title: 'Gastronomía',
       text: 'Cocina de origen a fuego lento y sabor local.',
-      img: '/images/gastronomiaHome.png'
+      img: '/images/gastronomiaHome.png',
+      link: '/gastronomia'
     }
   ];
 
