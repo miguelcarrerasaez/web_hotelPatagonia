@@ -1,66 +1,77 @@
 export function Experiences() {
   return (
-    <section className="bg-ph-hueso py-24">
-      <div className="mx-auto max-w-7xl px-6">
-
-        {/* Bloque 1: Tinajas — Imagen izquierda, Texto derecha */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#e5e4e7]">
+    <div className="bg-[#F9F8F5] flex flex-col gap-16 py-14">
+      
+      {/* 1. SECCIÓN: BIENESTAR Y TINAJAS */}
+      <section className="max-w-[1440px] w-full mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          
+          {/* Foto Izquierda */}
+          <div className="w-full h-[360px] sm:h-[420px] lg:h-[460px]">
             <img
-              src="https://placehold.co/600x750/292929/FFFFFF?text=Tinajas"
-              alt="Tinajas"
+              src="/images/tinajaHome.png"
+              alt="Bienestar y Tinajas"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center">
-            <p className="font-sans text-xs font-semibold uppercase tracking-wider text-ph-bronce">
-              Bienestar y tinajas
-            </p>
-            <h3 className="font-serif text-ph-taupe text-2xl font-bold leading-tight sm:text-3xl mt-1">
+
+          {/* Texto Derecha */}
+          <div className="flex flex-col items-start justify-center">
+            <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-3">
+              BIENESTAR Y TINAJAS
+            </span>
+            <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal leading-tight mb-4">
               La pausa también es un viaje
-            </h3>
-            <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
-              Sumérgete en nuestras tinajas exteriores con vista al bosque y
-              deja que el tiempo se detenga.
+            </h2>
+            <p className="font-sans text-[#28211A]/80 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+              El contraste perfecto entre el calor del agua y el aire puro de la montaña. Un ritual al aire libre sumergido en el bosque nativo, diseñado para restaurar el cuerpo y la mente en absoluto silencio tras una jornada de exploración.
             </p>
             <a
-              href="#experiencias"
-              className="mt-6 inline-block font-sans text-sm font-semibold text-ph-verde hover:underline transition"
+              href="#tinajas"
+              className="px-6 py-3 bg-[#2C3E35] text-white font-sans text-sm font-medium hover:bg-[#1f2d26] transition-colors"
             >
-              Reservar experiencia &rarr;
+              Ver experiencia
             </a>
           </div>
-        </div>
 
-        {/* Bloque 2: Börek — Texto izquierda, Imagen derecha */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col justify-center order-2 md:order-1">
-            <p className="font-sans text-xs font-semibold uppercase tracking-wider text-ph-bronce">
-              Gastronom&iacute;a B&ouml;rek
-            </p>
-            <h3 className="font-serif text-ph-taupe text-2xl font-bold leading-tight sm:text-3xl mt-1">
+        </div>
+      </section>
+
+      {/* 2. SECCIÓN: GASTRONOMÍA BÒREK */}
+      <section className="max-w-[1440px] w-full mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          
+          {/* Texto Izquierda (order-2 en móvil, order-1 en escritorio) */}
+          <div className="flex flex-col items-start justify-center order-2 lg:order-1">
+            <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-3">
+              GASTRONOMÍA BÒREK
+            </span>
+            <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal leading-tight mb-4">
               El territorio se encuentra en la mesa
-            </h3>
-            <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
-              Platos de autor con ingredientes de la Patagonia, maridaje de vinos
-              de la zona y atmósfera de caba&ntilde;a moderna.
+            </h2>
+            <p className="font-sans text-[#28211A]/80 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+              Una propuesta culinaria de origen donde la cocina a leña, los productos de recolección local y la identidad de Aysén se encuentran. Sabores honestos y de autor que rinden tributo al paisaje patagónico en un ambiente cálido e íntimo.
             </p>
             <a
-              href="#gastronomia"
-              className="mt-6 inline-block font-sans text-sm font-semibold text-ph-verde hover:underline transition"
+              href="#borek"
+              className="px-6 py-3 bg-[#2C3E35] text-white font-sans text-sm font-medium hover:bg-[#1f2d26] transition-colors"
             >
-              Ver carta &rarr;
+              Descubrir Bòrek
             </a>
           </div>
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#e5e4e7] order-1 md:order-2">
+
+          {/* Foto Derecha (order-1 en móvil, order-2 en escritorio) */}
+          <div className="w-full h-[360px] sm:h-[420px] lg:h-[460px] order-1 lg:order-2">
             <img
-              src="https://placehold.co/600x750/292929/FFFFFF?text=Borek"
-              alt="Börek Gastronomía"
+              src="/images/borekHome.png"
+              alt="Gastronomía Bòrek"
               className="w-full h-full object-cover"
             />
           </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
   );
 }
