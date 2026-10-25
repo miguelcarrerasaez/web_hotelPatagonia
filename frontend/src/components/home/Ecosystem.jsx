@@ -2,59 +2,59 @@ export function Ecosystem() {
   const cards = [
     {
       title: 'Refugio',
-      text: 'Habitaciones diseñadas para el descanso y la privacidad.',
-      img: '/images/refugioHome.png',
+      text: 'El arte de la pausa y el silencio patagónico.',
+      img: '/images/refugioHome.png'
     },
     {
       title: 'Exploración',
-      text: 'Rutas guiadas por glaciares, bosques y estepa austral.',
-      img: '/images/exploracionHome.png',
+      text: 'Sumérgete en la inmensidad salvaje de Aysén.',
+      img: '/images/exploracionHome.png'
     },
     {
       title: 'Gastronomía',
-      text: 'Sabores de la zona con productos locales y de temporada.',
-      img: '/images/gastronomiaHome.png',
-    },
+      text: 'Cocina de origen a fuego lento y sabor local.',
+      img: '/images/gastronomiaHome.png'
+    }
   ];
 
   return (
-    <section className="bg-ph-hueso py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl">
-          <p className="font-sans text-xs font-semibold uppercase tracking-wider text-ph-bronce">
-            Nuestro ecosistema
-          </p>
-          <h2 className="font-serif text-ph-taupe text-3xl font-bold leading-tight sm:text-4xl mt-1">
+    <section className="bg-[#F9F8F5] py-14">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        {/* Encabezado con 32px (mb-8) de margen inferior hacia las cards */}
+        <div className="mb-8 max-w-2xl">
+          <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
+            NUESTRO ECOSISTEMA
+          </span>
+          <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal leading-tight mb-2">
             Un lugar. Tres maneras de sentirlo.
           </h2>
-          <p className="mt-4 font-sans text-ph-taupe text-lg leading-relaxed">
-            Descubre cómo cada experiencia se entrelaza con el entorno natural.
+          <p className="font-sans text-[#28211A] text-base leading-relaxed">
+            Patagonia House conecta el refugio boutique de montaña, la exploración de Aysén con Salvaje Corazón y la gastronomía de origen de Bòrek.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card, i) => (
-            <div
-              key={card.title}
-              className="relative h-[500px] rounded-xl overflow-hidden group"
-            >
-              <img
-                src={card.img}
-                alt={card.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="font-serif text-white text-2xl font-bold mb-2">
-                  {card.title}
-                </h3>
-                <p className="font-sans text-white/90 text-sm sm:text-base">
-                  {card.text}
-                </p>
-              </div>
-            </div>
-          ))}
+        {/* Grilla de tarjetas con bordes rectos (sin rounded-*) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {cardItems(cards)}
         </div>
       </div>
     </section>
   );
+}
+
+function cardItems(cards) {
+  return cards.map((card, idx) => (
+    <div key={idx} className="relative aspect-[3/4] overflow-hidden group">
+      <img
+        src={card.img}
+        alt={card.title}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+      <div className="absolute bottom-6 left-6 right-6 text-white">
+        <h3 className="font-serif text-2xl font-normal mb-1">{card.title}</h3>
+        <p className="font-sans text-sm text-white/80">{card.text}</p>
+      </div>
+    </div>
+  ));
 }
