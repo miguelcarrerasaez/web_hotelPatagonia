@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Home } from './components/home/Home';
 import { RoomsSubhome } from './components/rooms/RoomsSubhome';
 import { Standard } from './components/rooms/Standard';
+import { Superior } from './components/rooms/Superior';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -24,6 +25,10 @@ export function App() {
 
   if (currentPath === '/habitaciones/standard') {
     return <Standard navigate={navigate} />;
+  }
+
+  if (currentPath === '/habitaciones/superior') {
+    return <Superior navigate={navigate} />;
   }
 
   return <Home navigate={navigate} />;
