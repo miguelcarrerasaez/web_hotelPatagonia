@@ -208,7 +208,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 4. SECCIÓN "NUESTRO ECOSISTEMA" */}
+        {/* 4. SECCIÓN "NUESTRO ECOSISTEMA" (IGUAL A FIGMA) */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16 border-t border-[#2C3E35]/10">
           <div className="mb-8">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
@@ -223,65 +223,88 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            
+            {/* Tarjeta 1: Ritual de Tinajas */}
             <div
-              onClick={() => handleNavigate('/lodge')}
-              className="group cursor-pointer bg-white border border-[#2C3E35]/10 overflow-hidden shadow-sm"
+              onClick={() => handleNavigate('/experiencias/bienestar')}
+              className="group cursor-pointer relative h-[420px] sm:h-[460px] overflow-hidden shadow-sm bg-[#EFECE6]"
             >
-              <div className="h-64 bg-[#EFECE6] overflow-hidden">
-                <img
-                  src="/images/refugioHome.png"
-                  onError={handleImgError}
-                  alt="El Lodge"
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl text-[#2C3E35] mb-2">El Lodge</h3>
-                <p className="font-sans text-xs text-[#28211A]/70 font-light leading-relaxed">
-                  Refugio de montaña rodeado de naturaleza nativa.
+              <img
+                src="/images/tinajasubHome.png"
+                onError={(e) => {
+                  if (e.target.src.includes('tinajasubHome.png')) {
+                    e.target.src = '/images/tinajaHome.png';
+                  } else {
+                    handleImgError(e);
+                  }
+                }}
+                alt="Ritual de Tinajas"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-6 sm:p-8 flex flex-col justify-end text-white">
+                <h3 className="font-serif text-2xl sm:text-3xl mb-2 font-normal">
+                  Ritual de Tinajas
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed">
+                  El calor del agua como pausa regenerativa en medio del bosque.
                 </p>
               </div>
             </div>
 
+            {/* Tarjeta 2: Pesca & Exploración */}
             <div
               onClick={() => handleNavigate('/experiencias/expediciones')}
-              className="group cursor-pointer bg-white border border-[#2C3E35]/10 overflow-hidden shadow-sm"
+              className="group cursor-pointer relative h-[420px] sm:h-[460px] overflow-hidden shadow-sm bg-[#EFECE6]"
             >
-              <div className="h-64 bg-[#EFECE6] overflow-hidden">
-                <img
-                  src="/images/exploracionHome.png"
-                  onError={handleImgError}
-                  alt="Salvaje Corazón"
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl text-[#2C3E35] mb-2">Salvaje Corazón</h3>
-                <p className="font-sans text-xs text-[#28211A]/70 font-light leading-relaxed">
-                  Expediciones y rutas guiadas por Aysén.
+              <img
+                src="/images/pescasubHome.png"
+                onError={(e) => {
+                  if (e.target.src.includes('pescasubHome.png')) {
+                    e.target.src = '/images/exploracionHome.png';
+                  } else {
+                    handleImgError(e);
+                  }
+                }}
+                alt="Pesca & Exploración"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-6 sm:p-8 flex flex-col justify-end text-white">
+                <h3 className="font-serif text-2xl sm:text-3xl mb-2 font-normal">
+                  Pesca &amp; Exploración
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed">
+                  Sumérgete en los ríos de Aysén con guías expertos en la inmensidad austral.
                 </p>
               </div>
             </div>
 
+            {/* Tarjeta 3: Gastronomía Bòrek */}
             <div
               onClick={() => handleNavigate('/gastronomia')}
-              className="group cursor-pointer bg-white border border-[#2C3E35]/10 overflow-hidden shadow-sm"
+              className="group cursor-pointer relative h-[420px] sm:h-[460px] overflow-hidden shadow-sm bg-[#EFECE6]"
             >
-              <div className="h-64 bg-[#EFECE6] overflow-hidden">
-                <img
-                  src="/images/gastronomiaHome.png"
-                  onError={handleImgError}
-                  alt="Restaurant Bòrek"
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl text-[#2C3E35] mb-2">Bòrek</h3>
-                <p className="font-sans text-xs text-[#28211A]/70 font-light leading-relaxed">
-                  Cocina de origen y fuego patagónico.
+              <img
+                src="/images/boreksubHome.png"
+                onError={(e) => {
+                  if (e.target.src.includes('boreksubHome.png')) {
+                    e.target.src = '/images/gastronomiaHome.png';
+                  } else {
+                    handleImgError(e);
+                  }
+                }}
+                alt="Gastronomía Bòrek"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-6 sm:p-8 flex flex-col justify-end text-white">
+                <h3 className="font-serif text-2xl sm:text-3xl mb-2 font-normal">
+                  Gastronomía Bòrek
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed">
+                  Cocina de origen a fuego lento, donde el territorio patagónico cobra vida.
                 </p>
               </div>
             </div>
+
           </div>
         </section>
       </main>
