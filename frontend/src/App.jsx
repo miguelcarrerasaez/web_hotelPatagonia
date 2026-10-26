@@ -4,6 +4,7 @@ import { RoomsSubhome } from './components/rooms/RoomsSubhome';
 import { Standard } from './components/rooms/Standard';
 import { Superior } from './components/rooms/Superior';
 import { JuniorSuite } from './components/rooms/JuniorSuite';
+import { Apartment } from './components/rooms/Apartment';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -34,6 +35,10 @@ export function App() {
 
   if (currentPath === '/habitaciones/junior-suite') {
     return <JuniorSuite navigate={navigate} />;
+  }
+
+  if (currentPath === '/habitaciones/apartment') {
+    return <Apartment navigate={navigate} />;
   }
 
   return <Home navigate={navigate} />;
