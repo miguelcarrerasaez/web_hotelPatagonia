@@ -18,7 +18,7 @@ export function Home({ navigate }) {
       <Ecosystem navigate={navigate} />
       <RoomsPreview navigate={navigate} />
       <CtaBanner />
-      <Experiences />
+      <Experiences navigate={navigate} />
       <LocationMap />
       <Footer />
     </div>
