@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
 
@@ -35,6 +35,14 @@ const roomSlides = [
 
 export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  // Movimiento automático del carrusel cada 3 segundos
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % roomSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const goHome = () => {
     if (navigate) navigate('/');
@@ -144,7 +152,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               src={currentSlide.image}
               onError={handleImgError}
               alt={currentSlide.title}
-              className="w-full h-full object-cover transition-all duration-700"
+              className="w-full h-full object-cover transition-transform duration-700 ease-in-out"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 sm:p-12 flex flex-col justify-end text-white">
@@ -168,7 +176,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
             <button
               onClick={prevSlide}
               aria-label="Anterior"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer z-10"
             >
               <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -178,7 +186,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
             <button
               onClick={nextSlide}
               aria-label="Siguiente"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer z-10"
             >
               <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -186,12 +194,12 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
             </button>
 
             {/* Puntos de Paginación */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
               {roomSlides.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentSlideIndex(idx)}
-                  className={`h-2 transition-all rounded-full ${
+                  className={`h-2 transition-all rounded-full cursor-pointer ${
                     idx === currentSlideIndex ? 'w-8 bg-white' : 'w-2 bg-white/50'
                   }`}
                 />
