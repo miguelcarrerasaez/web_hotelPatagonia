@@ -235,6 +235,17 @@ export function Standard({ lang = 'ES', setLang = () => {}, navigate }) {
     }
   };
 
+    // Agrega estas funciones dentro del componente Standard:
+  const goHome = () => {
+    if (navigate) navigate('/');
+    else window.location.href = '/';
+  };
+
+  const goRooms = () => {
+    if (navigate) navigate('/habitaciones');
+    else window.location.href = '/habitaciones';
+  };
+
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#28211A] overflow-x-hidden">
       
@@ -244,10 +255,24 @@ export function Standard({ lang = 'ES', setLang = () => {}, navigate }) {
       <main className="pt-28 md:pt-36">
         
         {/* 2. ENCABEZADO DE CATEGORÍA */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-8 pb-4">
-          <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
-            HABITACIONES
-          </span>
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-4 pb-4">
+          <p className="font-sans text-xs md:text-sm text-[#8C8377] font-medium tracking-wide flex items-center gap-1.5 mb-4">
+            <button
+              onClick={goHome}
+              className="hover:text-[#2C3E35] hover:underline cursor-pointer transition-colors"
+            >
+              Home
+            </button>
+            <span>/</span>
+            <button
+              onClick={goRooms}
+              className="hover:text-[#2C3E35] hover:underline cursor-pointer transition-colors"
+            >
+              Habitaciones
+            </button>
+            <span>/</span>
+            <span className="text-[#C88E4B]">Standard</span>
+          </p>
           <h1 className="font-serif text-[#2C3E35] text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight">
             Standard
           </h1>
