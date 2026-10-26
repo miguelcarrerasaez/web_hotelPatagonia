@@ -5,6 +5,7 @@ import { Standard } from './components/rooms/Standard';
 import { Superior } from './components/rooms/Superior';
 import { JuniorSuite } from './components/rooms/JuniorSuite';
 import { Apartment } from './components/rooms/Apartment';
+import { BienestarTinajas } from './components/experiences/BienestarTinajas';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -39,6 +40,10 @@ export function App() {
 
   if (currentPath === '/habitaciones/apartment') {
     return <Apartment navigate={navigate} />;
+  }
+
+  if (currentPath === '/experiencias/bienestar') {
+    return <BienestarTinajas navigate={navigate} />;
   }
 
   return <Home navigate={navigate} />;
