@@ -23,13 +23,14 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
   const burgerBg = darkText ? 'bg-[#2C3E35]' : 'bg-white';
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-transparent px-6 md:px-12 lg:px-20 py-6 md:py-8">
-      <div className="flex justify-between items-center max-w-[1440px] mx-auto relative">
+    <header className="absolute top-0 left-0 w-full z-50 bg-transparent py-6 md:py-8">
+      {/* Contenedor centralizado con padding idéntico al Hero */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex justify-between items-center relative">
         
         {/* LADO IZQUIERDO: Contenedor del Menú */}
         <div className="relative">
           
-          {/* Botón en estado cerrado */}
+          {/* Estado cerrado */}
           {!isOpen && (
             <div className="flex items-center gap-4">
               <button
@@ -58,11 +59,10 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
             </div>
           )}
 
-          {/* Menú desplegable Glass que nace desde arriba */}
+          {/* Menú desplegable Glass */}
           {isOpen && (
             <div className="absolute -top-3 -left-4 w-72 sm:w-80 bg-[#1f2d26]/85 backdrop-blur-lg border border-white/15 p-5 sm:p-6 z-50 text-white shadow-2xl transition-all">
               
-              {/* Cabecera interna del menú */}
               <div className="flex items-center gap-4 mb-4 pb-3 border-b border-white/10">
                 <button
                   onClick={toggleMenu}
@@ -87,11 +87,8 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                 </div>
               </div>
 
-              {/* Lista de navegación */}
               <nav>
                 <ul className="flex flex-col gap-3 font-sans text-sm font-medium tracking-wide">
-                  
-                  {/* 1. HABITACIONES */}
                   <li>
                     <button
                       onClick={() => handleNav('/habitaciones')}
@@ -101,7 +98,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     </button>
                   </li>
 
-                  {/* 2. EXPERIENCIAS */}
                   <li
                     onMouseEnter={() => setShowExperiences(true)}
                     onMouseLeave={() => setShowExperiences(false)}
@@ -123,7 +119,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                       </svg>
                     </button>
 
-                    {/* Sub-opciones */}
                     <div
                       className={`flex flex-col gap-2 mt-1 ml-3 font-sans text-xs font-light text-white/85 overflow-hidden transition-all duration-300 ${
                         showExperiences ? 'max-h-40 opacity-100 py-1' : 'max-h-0 opacity-0'
@@ -150,7 +145,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     </div>
                   </li>
 
-                  {/* 3. GASTRONOMÍA (BÒREK) */}
                   <li>
                     <button
                       onClick={() => handleNav('/gastronomia')}
@@ -160,7 +154,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     </button>
                   </li>
 
-                  {/* 4. EL LODGE */}
                   <li>
                     <button
                       onClick={() => handleNav('/lodge')}
@@ -169,7 +162,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                       El Lodge
                     </button>
                   </li>
-
                 </ul>
               </nav>
 
@@ -192,3 +184,5 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
     </header>
   );
 }
+
+export default Navbar;
