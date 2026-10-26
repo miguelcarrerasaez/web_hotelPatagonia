@@ -43,7 +43,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="w-full h-[360px] sm:h-[440px] lg:h-[480px]">
               <img
-                src="/images/refugioHome.png"
+                src="/images/subHome.jpg"
                 alt="Habitaciones Refugio Patagonia House"
                 className="w-full h-full object-cover"
               />
