@@ -53,7 +53,7 @@ const superiorRoomsGroup1 = [
     name: 'Mañío',
     specs: '25 m²  |  King Size  |  2 personas',
     description:
-      'Ubicada en el segundo nivel del lodge, Mañío invita a contemplar el bosque nativo desde una perspectiva privilegiada. Un refugio de 25 m² donde la calidez de la madera de autor y la luz natural crean la atmósfera perfecta para el descanso sereno y la desconexión tras un día de expedición.',
+      'Ubicada en el segundo nivel del lodge, Mañío invita a contemplar el bosque nativo desde una perspectiva privileged. Un refugio de 25 m² donde la calidez de la madera de autor y la luz natural crean la atmósfera perfecta para el descanso sereno y la desconexión tras un día de expedición.',
     images: [
       '/images/Manio/manio1.png',
       '/images/Manio/manio2.png',
@@ -268,6 +268,7 @@ export function Superior({ lang = 'ES', setLang = () => {}, navigate }) {
     if (navigate) navigate('/habitaciones');
     else window.location.href = '/habitaciones';
   };
+
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#28211A] overflow-x-hidden">
       
@@ -299,6 +300,17 @@ export function Superior({ lang = 'ES', setLang = () => {}, navigate }) {
             Superior
           </h1>
         </section>
+
+        {/* 3. PRIMER GRUPO DE HABITACIONES SUPERIOR (2 Personas) */}
+        <div className="flex flex-col gap-2 py-2">
+          {superiorRoomsGroup1.map((room) => (
+            <RoomCard
+              key={room.id}
+              room={room}
+              onOpenLightbox={openLightbox}
+            />
+          ))}
+        </div>
 
         {/* 4. PRIMERA SECCIÓN AMENIDADES (2 Personas) */}
         <section className="bg-[#F9F8F5] py-8 md:py-12 border-t border-[#8C8377]/15">
