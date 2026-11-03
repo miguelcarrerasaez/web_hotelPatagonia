@@ -116,7 +116,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 4. SECCIÓN PANEL SOLAR / TURISMO SUSTENTABLE (AL INICIO) */}
+        {/* 4. SECCIÓN PANEL SOLAR / TURISMO SUSTENTABLE */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-12 border-t border-[#2C3E35]/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Lado Izquierdo: Texto */}
@@ -309,4 +309,106 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        Número de Teléfono*
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.telefono}
+                        onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        ¿En qué medio te contactamos?
+                      </label>
+                      <select
+                        value={formData.medioContacto}
+                        onChange={(e) => setFormData({ ...formData, medioContacto: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      >
+                        <option value="">Selecciona...</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Email">Email</option>
+                        <option value="Llamada">Llamada telefónica</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        Cantidad de personas
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        max="10"
+                        placeholder="2"
+                        value={formData.personas}
+                        onChange={(e) => setFormData({ ...formData, personas: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        ¿Qué día deseas reservar?*
+                      </label>
+                      <input
+                        type="date"
+                        required
+                        value={formData.fecha}
+                        onChange={(e) => setFormData({ ...formData, fecha: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        Horario
+                      </label>
+                      <select
+                        value={formData.horario}
+                        onChange={(e) => setFormData({ ...formData, horario: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      >
+                        <option value="">Selecciona horario...</option>
+                        <option value="12:00 - 15:00">12:00 - 15:00 hrs</option>
+                        <option value="15:30 - 18:30">15:30 - 18:30 hrs</option>
+                        <option value="19:00 - 22:00">19:00 - 22:00 hrs</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#2C3E35] text-white font-sans text-sm font-medium py-3 hover:bg-[#1f2d26] transition-colors mt-3 cursor-pointer"
+                  >
+                    Enviar
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* 9. Footer */}
+      <Footer />
+    </div>
+  );
+}
+
+export default BienestarTinajas;
