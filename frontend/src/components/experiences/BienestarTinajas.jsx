@@ -77,6 +77,31 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </p>
         </section>
 
+        {/* 6. NUEVA SECCIÓN: TURISMO SUSTENTABLE Y COMPROMISO (FIGMA) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Lado Izquierdo: Texto */}
+            <div className="flex flex-col justify-center pr-0 lg:pr-8">
+              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
+                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
+              </p>
+              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
+                ¡Tú también eres parte de este compromiso!
+              </p>
+            </div>
+
+            {/* Lado Derecho: Imagen del Panel Solar */}
+            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
+              <img
+                src="/images/panel.png"
+                onError={handleImgError}
+                alt="Turismo Sustentable y Energía Solar"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </section>
+        
         {/* 3. SECCIÓN: EL ENCUENTRO ENTRE EL AGUA Y EL FUEGO */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -172,31 +197,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                 onError={handleImgError}
                 alt="Programa 2 - Tinajas y Gastronomía"
                 className="w-full h-auto object-contain shadow-sm border border-[#2C3E35]/10 group-hover:shadow-md transition-shadow"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* 6. NUEVA SECCIÓN: TURISMO SUSTENTABLE Y COMPROMISO (FIGMA) */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Lado Izquierdo: Texto */}
-            <div className="flex flex-col justify-center pr-0 lg:pr-8">
-              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
-                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
-              </p>
-              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
-                ¡Tú también eres parte de este compromiso!
-              </p>
-            </div>
-
-            {/* Lado Derecho: Imagen del Panel Solar */}
-            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
-              <img
-                src="/images/panel.png"
-                onError={handleImgError}
-                alt="Turismo Sustentable y Energía Solar"
-                className="w-full h-full object-cover object-center"
               />
             </div>
           </div>
