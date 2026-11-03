@@ -77,32 +77,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </p>
         </section>
 
-        {/* 6. NUEVA SECCIÓN: TURISMO SUSTENTABLE Y COMPROMISO (FIGMA) */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Lado Izquierdo: Texto */}
-            <div className="flex flex-col justify-center pr-0 lg:pr-8">
-              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
-                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
-              </p>
-              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
-                ¡Tú también eres parte de este compromiso!
-              </p>
-            </div>
-
-            {/* Lado Derecho: Imagen del Panel Solar */}
-            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
-              <img
-                src="/images/panel.png"
-                onError={handleImgError}
-                alt="Turismo Sustentable y Energía Solar"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-          </div>
-        </section>
-        
-        {/* 3. SECCIÓN: EL ENCUENTRO ENTRE EL AGUA Y EL FUEGO */}
+        {/* 3. SECCIÓN PRINCIPAL: EL ENCUENTRO ENTRE EL AGUA Y EL FUEGO */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Lado Izquierdo: Imagen Bòrek */}
@@ -141,7 +116,32 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 4. SECCIÓN: NUESTROS RITUALES */}
+        {/* 4. SECCIÓN PANEL SOLAR / TURISMO SUSTENTABLE (AL INICIO) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-12 border-t border-[#2C3E35]/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Lado Izquierdo: Texto */}
+            <div className="flex flex-col justify-center pr-0 lg:pr-8">
+              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
+                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
+              </p>
+              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
+                ¡Tú también eres parte de este compromiso!
+              </p>
+            </div>
+
+            {/* Lado Derecho: Imagen del Panel Solar */}
+            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
+              <img
+                src="/images/panel.png"
+                onError={handleImgError}
+                alt="Turismo Sustentable y Energía Solar"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 5. SECCIÓN: NUESTROS RITUALES */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-10">
           <div className="text-left mb-6">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
@@ -171,7 +171,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 5. SECCIÓN PROGRAMAS */}
+        {/* 6. SECCIÓN PROGRAMAS */}
         <section className="max-w-[1020px] mx-auto px-6 md:px-12 py-8 md:py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 justify-items-center">
             {/* Programa 1: Estadía y Tinajas */}
@@ -309,107 +309,4 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        Número de Teléfono*
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={formData.telefono}
-                        onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        ¿En qué medio te contactamos?
-                      </label>
-                      <select
-                        value={formData.medioContacto}
-                        onChange={(e) => setFormData({ ...formData, medioContacto: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      >
-                        <option value="">Selecciona...</option>
-                        <option value="WhatsApp">WhatsApp</option>
-                        <option value="Email">Email</option>
-                        <option value="Llamada">Llamada telefónica</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        Cantidad de personas
-                      </label>
-                      <input
-                        type="number"
-                        min="1"
-                        max="10"
-                        placeholder="2"
-                        value={formData.personas}
-                        onChange={(e) => setFormData({ ...formData, personas: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        ¿Qué día deseas reservar?*
-                      </label>
-                      <input
-                        type="date"
-                        required
-                        value={formData.fecha}
-                        onChange={(e) => setFormData({ ...formData, fecha: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        Horario
-                      </label>
-                      <select
-                        value={formData.horario}
-                        onChange={(e) => setFormData({ ...formData, horario: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      >
-                        <option value="">Selecciona horario...</option>
-                        <option value="12:00 - 15:00">12:00 - 15:00 hrs</option>
-                        <option value="15:30 - 18:30">15:30 - 18:30 hrs</option>
-                        <option value="19:00 - 22:00">19:00 - 22:00 hrs</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#2C3E35] text-white font-sans text-sm font-medium py-3 hover:bg-[#1f2d26] transition-colors mt-3 cursor-pointer"
-                  >
-                    Enviar
-                  </button>
-
-                </form>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* 9. Footer */}
-      <Footer />
-    </div>
-  );
-}
-
-export default BienestarTinajas;
+                        className="
