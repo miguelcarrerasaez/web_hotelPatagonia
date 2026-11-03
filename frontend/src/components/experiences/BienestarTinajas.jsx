@@ -7,7 +7,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
   const galleryImages = [
     '/images/tinaja1.png',
     '/images/tinaja2.png',
-    '/images/tinajaExp.jpg',
+    '/images/tinajaHome.png',
   ];
 
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
@@ -83,7 +83,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
             {/* Lado Izquierdo: Imagen Bòrek */}
             <div className="w-full h-[380px] sm:h-[460px] lg:h-[520px] overflow-hidden shadow-sm bg-[#EFECE6]">
               <img
-                src="/images/borekExp.jpg"
+                src="/images/borekExp.png"
                 onError={handleImgError}
                 alt="Bòrek - Bienestar y Gastronomía"
                 className="w-full h-full object-cover"
@@ -116,7 +116,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 4. SECCIÓN: NUESTROS RITUALES (ALTURA Y ESCALA AJUSTADAS) */}
+        {/* 4. SECCIÓN: NUESTROS RITUALES */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-10">
           <div className="text-left mb-6">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
@@ -130,7 +130,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
             </p>
           </div>
 
-          {/* Imagen encuadrada con altura acotada */}
           <div className="w-full h-[280px] sm:h-[360px] lg:h-[400px] overflow-hidden bg-[#EFECE6] shadow-sm">
             <img
               src="/images/tinajaExp.jpg"
@@ -142,15 +141,14 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                 }
               }}
               alt="Ritual de Tinajas en la Patagonia"
-              className="w-full h-full object-cover object-[center_75%]"
+              className="w-full h-full object-cover object-[center_70%]"
             />
           </div>
         </section>
 
-        {/* 5. SECCIÓN PROGRAMAS (ESCALA MÁS PEQUEÑA Y CENTRADA) */}
+        {/* 5. SECCIÓN PROGRAMAS */}
         <section className="max-w-[1020px] mx-auto px-6 md:px-12 py-8 md:py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 justify-items-center">
-            
             {/* Programa 1: Estadía y Tinajas */}
             <div 
               onClick={scrollToReservas}
@@ -159,7 +157,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
               <img
                 src="/images/programa1tinaja.png"
                 onError={handleImgError}
-                alt="Programa 1 - Estadía y Tinajas: Descanso, tinajas y sabores"
+                alt="Programa 1 - Estadía y Tinajas"
                 className="w-full h-auto object-contain shadow-sm border border-[#2C3E35]/10 group-hover:shadow-md transition-shadow"
               />
             </div>
@@ -172,22 +170,45 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
               <img
                 src="/images/programa2tinaja.png"
                 onError={handleImgError}
-                alt="Programa 2 - Tinajas y Gastronomía: Tinajas y mesa patagónica"
+                alt="Programa 2 - Tinajas y Gastronomía"
                 className="w-full h-auto object-contain shadow-sm border border-[#2C3E35]/10 group-hover:shadow-md transition-shadow"
               />
             </div>
-
           </div>
         </section>
 
-        {/* 6. SECCIÓN VER GALERÍA (Carrusel deslizante) */}
+        {/* 6. NUEVA SECCIÓN: TURISMO SUSTENTABLE Y COMPROMISO (FIGMA) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Lado Izquierdo: Texto */}
+            <div className="flex flex-col justify-center pr-0 lg:pr-8">
+              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
+                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
+              </p>
+              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
+                ¡Tú también eres parte de este compromiso!
+              </p>
+            </div>
+
+            {/* Lado Derecho: Imagen del Panel Solar */}
+            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
+              <img
+                src="/images/panel.png"
+                onError={handleImgError}
+                alt="Turismo Sustentable y Energía Solar"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 7. SECCIÓN VER GALERÍA (Carrusel) */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14">
           <div className="flex justify-between items-end mb-6">
             <h2 className="font-serif text-[#C88E4B] text-2xl sm:text-3xl font-normal">
               Ver Galería
             </h2>
             
-            {/* Botones de control del carrusel */}
             <div className="flex items-center gap-3">
               <button
                 onClick={prevGallery}
@@ -211,10 +232,8 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
             </div>
           </div>
 
-          {/* Carrusel Visor Multimagen */}
           <div className="relative w-full overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 ease-in-out">
-              {/* Foto Principal Actual */}
               <div className="h-[360px] sm:h-[440px] lg:h-[480px] bg-[#EFECE6] overflow-hidden shadow-sm">
                 <img
                   src={galleryImages[currentGalleryIndex]}
@@ -224,7 +243,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                 />
               </div>
 
-              {/* Foto Secundaria (Siguiente) */}
               <div className="hidden md:block h-[360px] sm:h-[440px] lg:h-[480px] bg-[#EFECE6] overflow-hidden shadow-sm">
                 <img
                   src={galleryImages[(currentGalleryIndex + 1) % galleryImages.length]}
@@ -237,12 +255,11 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 7. SECCIÓN "RESERVA TINAJAS" */}
+        {/* 8. SECCIÓN "RESERVA TINAJAS" */}
         <section id="reservas-tinajas" className="bg-[#F4F1EA] py-16 md:py-20 text-[#28211A]">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
               
-              {/* Lado Izquierdo */}
               <div className="flex flex-col justify-center">
                 <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-4">
                   Reserva Tinajas
@@ -252,11 +269,8 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                 </p>
               </div>
 
-              {/* Lado Derecho: Formulario */}
               <div className="bg-[#EFECE6] p-6 sm:p-8 border border-[#2C3E35]/10 flex flex-col gap-4">
                 <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
-                  
-                  {/* Nombre y Apellido */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
@@ -285,7 +299,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                     </div>
                   </div>
 
-                  {/* Email y Teléfono */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
@@ -314,7 +327,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                     </div>
                   </div>
 
-                  {/* Medio de contacto y Personas */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
@@ -348,7 +360,6 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                     </div>
                   </div>
 
-                  {/* Fecha y Horario */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
@@ -395,7 +406,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
         </section>
       </main>
 
-      {/* 8. Footer */}
+      {/* 9. Footer */}
       <Footer />
     </div>
   );
