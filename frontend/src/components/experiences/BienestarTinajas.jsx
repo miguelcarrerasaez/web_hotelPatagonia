@@ -209,7 +209,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
 
           <div className="relative w-full overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 ease-in-out">
-              <div className="h-[360px] sm:h-[440px] lg:h-[480px] bg-[#EFECE6] overflow-hidden shadow-sm">
+              <div className="h-[450px] sm:h-[560px] lg:h-[640px] bg-[#EFECE6] overflow-hidden shadow-sm">
                 <img
                   src={galleryImages[currentGalleryIndex]}
                   onError={handleImgError}
