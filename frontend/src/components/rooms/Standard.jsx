@@ -15,6 +15,7 @@ const roomsData = [
       '/images/Lenga/lenga2.png',
       '/images/Lenga/lenga3.png',
       '/images/Lenga/lenga4.png',
+      '/images/Lenga/lenga5.png',
     ],
     reverse: false,
   },
