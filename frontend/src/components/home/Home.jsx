@@ -5,7 +5,6 @@ import { Ecosystem } from './Ecosystem';
 import { RoomsPreview } from './RoomsPreview';
 import { CtaBanner } from './CtaBanner';
 import { Experiences } from './Experiences';
-//import { LocationMap } from './LocationMap';
 import { Footer } from '../layout/Footer';
 
 export function Home({ navigate }) {
@@ -19,7 +18,6 @@ export function Home({ navigate }) {
       <RoomsPreview navigate={navigate} />
       <CtaBanner />
       <Experiences navigate={navigate} />
-      <LocationMap />
       <Footer />
     </div>
   );
