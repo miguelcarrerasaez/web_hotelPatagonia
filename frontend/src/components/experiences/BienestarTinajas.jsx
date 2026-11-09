@@ -3,7 +3,7 @@ import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
 
 export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) {
-  // Estado para la galería carrusel de tinajas
+  // Estado para la galería carrusel de tinajas con la subcarpeta actualizada
   const galleryImages = [
     '/images/bienestarTinajas/tinaja1.png',
     '/images/bienestarTinajas/tinaja2.png',
@@ -177,7 +177,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 6. SECCIÓN GALERÍA (Carrusel) */}
+        {/* 6. SECCIÓN GALERÍA (Con mayor formato vertical) */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14 border-t border-[#2C3E35]/10">
           <div className="flex justify-between items-end mb-6">
             <h2 className="font-serif text-[#C88E4B] text-2xl sm:text-3xl font-normal">
@@ -208,8 +208,9 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
 
           <div className="relative w-full overflow-hidden">
+            {/* Se amplió la altura de h-[360px]... a h-[460px] sm:h-[560px] lg:h-[620px] */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 ease-in-out">
-              <div className="h-[450px] sm:h-[560px] lg:h-[640px] bg-[#EFECE6] overflow-hidden shadow-sm">
+              <div className="h-[460px] sm:h-[560px] lg:h-[620px] bg-[#EFECE6] overflow-hidden shadow-sm">
                 <img
                   src={galleryImages[currentGalleryIndex]}
                   onError={handleImgError}
@@ -218,7 +219,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                 />
               </div>
 
-              <div className="hidden md:block h-[450px] sm:h-[560px] lg:h-[640px] bg-[#EFECE6] overflow-hidden shadow-sm">
+              <div className="hidden md:block h-[460px] sm:h-[560px] lg:h-[620px] bg-[#EFECE6] overflow-hidden shadow-sm">
                 <img
                   src={galleryImages[(currentGalleryIndex + 1) % galleryImages.length]}
                   onError={handleImgError}
@@ -330,60 +331,4 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                         placeholder="2"
                         value={formData.personas}
                         onChange={(e) => setFormData({ ...formData, personas: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        ¿Qué día deseas reservar?*
-                      </label>
-                      <input
-                        type="date"
-                        required
-                        value={formData.fecha}
-                        onChange={(e) => setFormData({ ...formData, fecha: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
-                        Horario
-                      </label>
-                      <select
-                        value={formData.horario}
-                        onChange={(e) => setFormData({ ...formData, horario: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
-                      >
-                        <option value="">Selecciona horario...</option>
-                        <option value="12:00 - 15:00">12:00 - 15:00 hrs</option>
-                        <option value="15:30 - 18:30">15:30 - 18:30 hrs</option>
-                        <option value="19:00 - 22:00">19:00 - 22:00 hrs</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#2C3E35] text-white font-sans text-sm font-medium py-3 hover:bg-[#1f2d26] transition-colors mt-3 cursor-pointer"
-                  >
-                    Enviar
-                  </button>
-                </form>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* 8. Footer */}
-      <Footer />
-    </div>
-  );
-}
-
-export default BienestarTinajas;
+                        className="w-full bg-white border border-[#2C3E35]/15 px-
