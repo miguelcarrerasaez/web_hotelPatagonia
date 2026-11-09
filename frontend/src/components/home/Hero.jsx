@@ -10,7 +10,7 @@ export function Hero() {
         poster="/images/refugioHome.png"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/videohero.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay de contraste */}

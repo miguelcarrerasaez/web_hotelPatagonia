@@ -36,8 +36,7 @@ export function Hero({ title, subtitle, poster = "/images/refugioHome.png" }) {
         poster={poster}
         aria-hidden="true"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/videohero.mp4" type="video/mp4" />
         Tu navegador no admite el elemento de video.
       </video>
 
