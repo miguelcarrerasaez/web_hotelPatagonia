@@ -43,6 +43,7 @@ const roomsData = [
       '/images/Tineo/tineo3.png',
       '/images/Tineo/tineo4.png',
       '/images/Tineo/tineo5.jpg',
+      '/images/Tineo/tineo6.jpg',
     ],
     reverse: false,
   },
