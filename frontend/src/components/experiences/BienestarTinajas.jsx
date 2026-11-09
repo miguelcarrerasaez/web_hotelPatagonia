@@ -5,9 +5,9 @@ import { Footer } from '../layout/Footer';
 export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) {
   // Estado para la galería carrusel de tinajas
   const galleryImages = [
-    '/images/tinaja1.png',
-    '/images/tinaja2.png',
-    '/images/tinajaHome.png',
+    '/images/bienestarTinaja/tinaja1.png',
+    '/images/bienestarTinaja/tinaja2.png',
+    '/images/bienestarTinaja/tinajaHome.png',
   ];
 
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
