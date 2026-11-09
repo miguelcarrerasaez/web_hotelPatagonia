@@ -29,8 +29,10 @@ export function Footer() {
               Ubicación
             </span>
             <p className="leading-relaxed">
-              Camino Campo Alegre S/N<br />
-              Coyhaique, XI Región, Chile<br />
+              Camino Campo<br /> 
+              Alegre S/N<br />
+              Coyhaique, XI Región<br />
+              Chile<br />
               <span className="text-white/60 text-xs mt-1 block">
                 Código Postal: S950000
               </span>
