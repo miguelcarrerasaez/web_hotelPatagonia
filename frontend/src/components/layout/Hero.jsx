@@ -1,30 +1,31 @@
 import { useRef, useEffect } from 'react';
 
-export function Hero({ title, subtitle }) {
+export function Hero({ title, subtitle, poster = "/images/refugioHome.png" }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const play = () => {
+    const playVideo = () => {
       if (video.readyState >= 2) {
         video.play().catch(() => {
-          // El usuario puede bloquear reproducción automática
+          // Manejo si el navegador restringe la reproducción automática
         });
       }
     };
 
-    play();
-    video.addEventListener('loadedmetadata', play);
+    playVideo();
+    video.addEventListener('loadedmetadata', playVideo);
 
     return () => {
-      video.removeEventListener('loadedmetadata', play);
+      video.removeEventListener('loadedmetadata', playVideo);
     };
   }, []);
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-ph-oscuro">
+      {/* Video de fondo con poster de carga instantánea */}
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -32,6 +33,7 @@ export function Hero({ title, subtitle }) {
         loop
         muted
         playsInline
+        poster={poster}
         aria-hidden="true"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
@@ -39,8 +41,10 @@ export function Hero({ title, subtitle }) {
         Tu navegador no admite el elemento de video.
       </video>
 
-      <div className="absolute inset-0 bg-ph-oscuro/80" aria-hidden="true" />
+      {/* Capa de contraste */}
+      <div className="absolute inset-0 bg-ph-oscuro/80 pointer-events-none" aria-hidden="true" />
 
+      {/* Contenido principal */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#AD9E7A]">
           Hotel &amp; Resorts
@@ -51,7 +55,7 @@ export function Hero({ title, subtitle }) {
         </h1>
 
         {subtitle && (
-          <p className="mx-auto mt-4 max-w-2xl text-base text-white/90 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-white/90 sm:text-lg font-light">
             {subtitle}
           </p>
         )}
@@ -77,3 +81,4 @@ export function Hero({ title, subtitle }) {
   );
 }
 
+export default Hero;
