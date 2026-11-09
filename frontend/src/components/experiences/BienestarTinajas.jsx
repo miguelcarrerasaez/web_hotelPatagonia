@@ -63,8 +63,8 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
       <Navbar lang={lang} setLang={setLang} darkText={true} navigate={navigate} />
 
       <main className="pt-28 md:pt-36">
-        {/* 2. BREADCRUMB CON LINK A HOME */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-4 pb-4">
+        {/* 2. BREADCRUMB */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-4 pb-2">
           <p className="font-sans text-xs md:text-sm text-[#8C8377] font-medium tracking-wide flex items-center gap-1.5">
             <button
               onClick={goHome}
@@ -77,89 +77,25 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </p>
         </section>
 
-        {/* 3. SECCIÓN PRINCIPAL: EL ENCUENTRO ENTRE EL AGUA Y EL FUEGO */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Lado Izquierdo: Imagen Bòrek */}
-            <div className="w-full h-[380px] sm:h-[460px] lg:h-[520px] overflow-hidden shadow-sm bg-[#EFECE6]">
-              <img
-                src="/images/borekExp.png"
-                onError={handleImgError}
-                alt="Bòrek - Bienestar y Gastronomía"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Lado Derecho: Contenido explicativo */}
-            <div className="flex flex-col justify-center px-2 lg:px-8">
-              <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-3">
-                BIENESTAR Y GASTRONOMÍA
-              </span>
-              <h1 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-5">
-                El encuentro entre el agua y el fuego
-              </h1>
-              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base leading-relaxed font-light mb-8">
-                Una pausa concebida para restaurar el cuerpo y despertar los sentidos. Combinamos el ritual de nuestras tinajas al aire libre inmersas en el bosque nativo con la cocina de origen y fuego de Bòrek. Una experiencia que transforma el descanso en un viaje gastronómico y territorial, ya sea durante una tarde de desconexión o como parte de tu estancia en el lodge.
-              </p>
-              <div>
-                <button
-                  onClick={() => {
-                    if (navigate) navigate('/gastronomia');
-                    else window.location.href = '/gastronomia';
-                  }}
-                  className="bg-[#2C3E35] text-white font-sans text-xs sm:text-sm tracking-wider uppercase px-6 py-3.5 hover:bg-[#1f2d26] transition-colors cursor-pointer"
-                >
-                  Descubrir Propuesta Gastronómica
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 4. SECCIÓN PANEL SOLAR / TURISMO SUSTENTABLE */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-12 border-t border-[#2C3E35]/10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Lado Izquierdo: Texto */}
-            <div className="flex flex-col justify-center pr-0 lg:pr-8">
-              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
-                En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
-              </p>
-              <p className="font-sans text-[#28211A] text-base sm:text-lg font-medium leading-relaxed">
-                ¡Tú también eres parte de este compromiso!
-              </p>
-            </div>
-
-            {/* Lado Derecho: Imagen del Panel Solar */}
-            <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden shadow-sm bg-[#EFECE6]">
-              <img
-                src="/images/panel.png"
-                onError={handleImgError}
-                alt="Turismo Sustentable y Energía Solar"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* 5. SECCIÓN: NUESTROS RITUALES */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-10">
+        {/* 3. SECCIÓN ENCABEZADO Y TINAJA PRINCIPAL (NUESTROS RITUALES) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-8">
           <div className="text-left mb-6">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
               NUESTROS RITUALES
             </span>
-            <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal mb-3">
+            <h1 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-4">
               Elige tu momento de desconexión
-            </h2>
+            </h1>
             <p className="font-sans text-[#28211A]/80 text-sm sm:text-base font-light max-w-3xl leading-relaxed">
-              Dos experiencias diseñadas para disfrutar del contraste entre el calor del agua al aire libre y el silencio del bosque nativo. Selecciona el ritual que mejor se adapta al ritmo de tu viaje.
+              Una experiencia diseñada para disfrutar del contraste entre el calor del agua al aire libre, los sonidos de la naturaleza patagónica y la serenidad del entorno. Selecciona el ritual que mejor se adapta al ritmo de tu viaje.
             </p>
           </div>
 
-          <div className="w-full h-[280px] sm:h-[360px] lg:h-[400px] overflow-hidden bg-[#EFECE6] shadow-sm">
+          <div className="w-full h-[320px] sm:h-[420px] lg:h-[500px] overflow-hidden bg-[#EFECE6] shadow-sm">
             <img
               src="/images/tinajaExp.jpg"
               onError={(e) => {
-                if (e.target.src.includes('tinajasubHome.png')) {
+                if (e.target.src.includes('tinajaExp.jpg')) {
                   e.target.src = '/images/tinajaExp.png';
                 } else {
                   handleImgError(e);
@@ -171,7 +107,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 6. SECCIÓN PROGRAMAS */}
+        {/* 4. SECCIÓN PROGRAMAS */}
         <section className="max-w-[1020px] mx-auto px-6 md:px-12 py-8 md:py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 justify-items-center">
             {/* Programa 1: Estadía y Tinajas */}
@@ -202,8 +138,47 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 7. SECCIÓN VER GALERÍA (Carrusel) */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14">
+        {/* 5. SECCIÓN BÒREK (AGUA Y FUEGO) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14 border-t border-[#2C3E35]/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Lado Izquierdo: Imagen Bòrek */}
+            <div className="w-full h-[380px] sm:h-[460px] lg:h-[500px] overflow-hidden shadow-sm bg-[#EFECE6]">
+              <img
+                src="/images/borekExp.png"
+                onError={handleImgError}
+                alt="Bòrek - Bienestar y Gastronomía"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Lado Derecho: Contenido explicativo */}
+            <div className="flex flex-col justify-center px-2 lg:px-6">
+              <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-3">
+                BIENESTAR + GASTRONOMÍA
+              </span>
+              <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-5">
+                El encuentro entre el agua y el fuego
+              </h2>
+              <p className="font-sans text-[#28211A]/80 text-sm sm:text-base leading-relaxed font-light mb-8">
+                Una pausa concebida para restaurar el cuerpo y despertar los sentidos. Combinamos el ritual de nuestras tinajas al aire libre inmersas en el bosque nativo con la cocina de origen y fuego de Bòrek. Una experiencia que transforma el descanso en un viaje gastronómico y territorial, ya sea durante una tarde de desconexión o como parte de tu estancia en el lodge.
+              </p>
+              <div>
+                <button
+                  onClick={() => {
+                    if (navigate) navigate('/gastronomia');
+                    else window.location.href = '/gastronomia';
+                  }}
+                  className="bg-[#2C3E35] text-white font-sans text-xs sm:text-sm tracking-wider uppercase px-6 py-3.5 hover:bg-[#1f2d26] transition-colors cursor-pointer"
+                >
+                  Descubrir Propuesta Gastronómica
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. SECCIÓN GALERÍA (Carrusel) */}
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14 border-t border-[#2C3E35]/10">
           <div className="flex justify-between items-end mb-6">
             <h2 className="font-serif text-[#C88E4B] text-2xl sm:text-3xl font-normal">
               Ver Galería
@@ -255,7 +230,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
           </div>
         </section>
 
-        {/* 8. SECCIÓN "RESERVA TINAJAS" */}
+        {/* 7. SECCIÓN RESERVA TINAJAS */}
         <section id="reservas-tinajas" className="bg-[#F4F1EA] py-16 md:py-20 text-[#28211A]">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -405,7 +380,7 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
         </section>
       </main>
 
-      {/* 9. Footer */}
+      {/* 8. Footer */}
       <Footer />
     </div>
   );
