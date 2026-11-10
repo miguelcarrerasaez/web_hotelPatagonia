@@ -214,20 +214,18 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
       <Navbar lang={lang} setLang={setLang} darkText={false} navigate={navigate} />
 
       <main>
-        {/* 2. HERO CON FOTO COMPLETA Y NÍTIDA (Sin opacidad reducida) */}
-        <section className="relative w-full min-h-[85vh] flex flex-col justify-end pt-32 pb-16 bg-[#2C3E35] overflow-hidden">
+        {/* 2. HERO CON FOTO LIMPIA SIN FILTROS NI OPACIDAD */}
+        <section className="relative w-full min-h-[85vh] flex flex-col justify-end pt-32 pb-16 overflow-hidden">
           <img
             src="/images/salvajeCorazon/heroSalvaje.png"
             onError={handleImgError}
             alt="Salvaje Corazón Patagonia"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          {/* Overlay sutil de contraste para legibilidad del texto */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/20 z-10 pointer-events-none" />
 
           <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             {/* Breadcrumb */}
-            <p className="font-sans text-xs md:text-sm text-white/80 font-medium tracking-wide flex items-center gap-1.5 mb-6">
+            <p className="font-sans text-xs md:text-sm text-white font-medium tracking-wide flex items-center gap-1.5 mb-6 drop-shadow-md">
               <button
                 onClick={goHome}
                 className="hover:text-white hover:underline cursor-pointer transition-colors"
@@ -240,11 +238,11 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
               <span className="text-[#AD9E7A]">Salvaje Corazón</span>
             </p>
 
-            <div className="max-w-2xl text-left">
+            <div className="max-w-2xl text-left drop-shadow-lg">
               <h1 className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-4">
                 Salvaje Corazón: El pulso indómito de la Patagonia
               </h1>
-              <p className="font-sans text-white/95 text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
+              <p className="font-sans text-white text-sm sm:text-base lg:text-lg leading-relaxed font-light mb-6">
                 Travesías privadas y expediciones de autor a tu propio ritmo por los rincones más remotos de Aysén.
               </p>
             </div>
@@ -272,18 +270,15 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
 
         {/* 4. SECCIÓN NUESTROS TOURS (Fondo de paisaje + Cuadros Glassmorphism) */}
         <section className="relative w-full py-16 md:py-24 overflow-hidden bg-[#2C3E35]">
-          {/* Imagen de fondo otoñal a todo color */}
           <img
             src="/images/salvajeCorazon/tour1.png"
             onError={handleImgError}
             alt="Fondo Paisaje Nuestros Tours"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          {/* Capa de contraste sutil */}
-          <div className="absolute inset-0 bg-black/35 z-10 pointer-events-none" />
 
           <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <h2 className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-10 text-center drop-shadow-sm">
+            <h2 className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-10 text-center drop-shadow-md">
               Nuestros Tours
             </h2>
 
@@ -293,7 +288,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
                 <div
                   key={tour.id}
                   onClick={() => setSelectedTour(tour)}
-                  className="bg-[#1a2620]/50 backdrop-blur-md border border-white/25 p-6 sm:p-8 flex flex-col justify-between text-white min-h-[260px] sm:min-h-[290px] shadow-xl hover:bg-[#1a2620]/75 hover:border-white/40 transition-all duration-300 cursor-pointer group rounded-sm"
+                  className="bg-[#1a2620]/40 backdrop-blur-md border border-white/25 p-6 sm:p-8 flex flex-col justify-between text-white min-h-[260px] sm:min-h-[290px] shadow-xl hover:bg-[#1a2620]/65 hover:border-white/40 transition-all duration-300 cursor-pointer group rounded-sm"
                 >
                   <div>
                     <h3 className="font-serif text-xl sm:text-2xl font-normal mb-3 leading-snug group-hover:text-[#AD9E7A] transition-colors">
@@ -303,7 +298,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
                       {tour.shortDesc}
                     </p>
                   </div>
-                  <div className="pt-4 flex items-center gap-1 text-xs uppercase tracking-widest text-[#AD9E7A] font-semibold opacity-85 group-hover:opacity-100 transition-opacity">
+                  <div className="pt-4 flex items-center gap-1 text-xs uppercase tracking-widest text-[#AD9E7A] font-semibold opacity-90 group-hover:opacity-100 transition-opacity">
                     <span>Explorar expedición</span>
                     <span>→</span>
                   </div>
@@ -460,20 +455,18 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 6. SECCIÓN PLANIFICACIÓN DEL VIAJE (Foto completa y clara de fondo + Carpeta Glass) */}
-        <section className="relative w-full py-16 md:py-24 bg-[#2C3E35] overflow-hidden text-white">
+        {/* 6. SECCIÓN PLANIFICACIÓN DEL VIAJE (Fondo de imagen real sin overlays + Carpeta Glassmorphism) */}
+        <section className="relative w-full py-16 md:py-24 overflow-hidden text-white">
           <img
             src="/images/salvajeCorazon/planificacion.png"
             onError={handleImgError}
             alt="Camino austral planificacion"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          {/* Overlay suave para asegurar visibilidad del texto sin opacar la foto */}
-          <div className="absolute inset-0 bg-[#121a15]/65 z-10 pointer-events-none" />
 
           <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="mb-8">
-              <h2 className="font-serif text-white text-3xl sm:text-4xl font-normal mb-2 drop-shadow-sm">
+            <div className="mb-8 drop-shadow-md">
+              <h2 className="font-serif text-white text-3xl sm:text-4xl font-normal mb-2">
                 Planificación del Viaje
               </h2>
               <p className="font-sans text-white/90 text-xs sm:text-sm font-light">
@@ -481,10 +474,10 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
               </p>
             </div>
 
-            {/* Pestañas estilo Carpeta con efecto Glass */}
+            {/* Pestañas estilo Carpeta con efecto Glassmorphism */}
             <div className="w-full">
-              {/* Encabezados de Pestañas */}
-              <div className="flex flex-wrap gap-2 border-b border-white/25">
+              {/* Encabezados de Pestañas con Glassmorphism */}
+              <div className="flex flex-wrap gap-2 border-b border-white/20">
                 {planningTabs.map((tab, index) => {
                   const isActive = activeTab === index;
                   return (
@@ -493,8 +486,8 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
                       onClick={() => setActiveTab(index)}
                       className={`px-5 py-3 font-sans text-xs sm:text-sm font-medium transition-all rounded-t-md cursor-pointer ${
                         isActive
-                          ? 'bg-[#1a2620]/90 backdrop-blur-md text-white border-t-2 border-[#AD9E7A] -mb-px shadow-md'
-                          : 'bg-black/50 text-white/80 hover:bg-black/70'
+                          ? 'bg-[#1a2620]/60 backdrop-blur-md text-white border-t-2 border-[#AD9E7A] -mb-px shadow-lg border-x border-white/20'
+                          : 'bg-black/30 backdrop-blur-sm text-white/80 hover:bg-black/50 border-t border-x border-white/10'
                       }`}
                     >
                       {tab.title}
@@ -503,11 +496,11 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
                 })}
               </div>
 
-              {/* Contenido de la carpeta activa */}
-              <div className="bg-[#1a2620]/90 backdrop-blur-md p-6 sm:p-8 lg:p-10 rounded-b-md rounded-tr-md shadow-xl border border-white/15 min-h-[220px]">
+              {/* Contenido de la carpeta activa con efecto Glassmorphism */}
+              <div className="bg-[#1a2620]/45 backdrop-blur-md p-6 sm:p-8 lg:p-10 rounded-b-md rounded-tr-md shadow-2xl border border-white/20 min-h-[220px]">
                 <ul className="space-y-4">
                   {planningTabs[activeTab].content.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 font-sans text-xs sm:text-sm font-light text-white/95 leading-relaxed">
+                    <li key={idx} className="flex items-start gap-3 font-sans text-xs sm:text-sm font-light text-white leading-relaxed drop-shadow-sm">
                       <span className="text-[#AD9E7A] font-bold">•</span>
                       <span>
                         <strong className="font-semibold text-white">{item.bold} </strong>
