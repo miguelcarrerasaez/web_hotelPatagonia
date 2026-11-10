@@ -96,7 +96,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
             </p>
 
             <div className="max-w-2xl text-left">
-              <h1 className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-4">
+              <h1 className="font-serif text-white text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight mb-4">
                 Pesca con mosca de clase mundial en los ríos de Aysén
               </h1>
 
@@ -153,7 +153,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-serif text-[#2C3E35] text-xl font-normal mb-3">
+              <h3 className="font-sans text-[#2C3E35] text-xl font-normal mb-3">
                 De ríos caudalosos a spring creeks técnicos
               </h3>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
@@ -170,7 +170,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-serif text-[#2C3E35] text-xl font-normal mb-3">
+              <h3 className="font-sans text-[#2C3E35] text-xl font-normal mb-3">
                 Truchas marrón y arcoíris 100% salvajes
               </h3>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
@@ -187,7 +187,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-serif text-[#2C3E35] text-xl font-normal mb-3">
+              <h3 className="font-sans text-[#2C3E35] text-xl font-normal mb-3">
                 Estricto Catch &amp; Release
               </h3>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
@@ -300,7 +300,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left">
               <div>
-                <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+                <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                   Traslados Privados
                 </h4>
                 <p className="font-sans text-[#28211A]/75 text-xs leading-relaxed font-light">
@@ -309,7 +309,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
 
               <div>
-                <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+                <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                   Licencias &amp; Acceso
                 </h4>
                 <p className="font-sans text-[#28211A]/75 text-xs leading-relaxed font-light">
@@ -318,7 +318,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
 
               <div>
-                <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+                <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                   Amenidades en Lodge
                 </h4>
                 <p className="font-sans text-[#28211A]/75 text-xs leading-relaxed font-light">
@@ -327,7 +327,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
 
               <div>
-                <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+                <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                   Ratio de Guías
                 </h4>
                 <p className="font-sans text-[#28211A]/75 text-xs leading-relaxed font-light">
@@ -336,7 +336,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
 
               <div>
-                <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+                <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                   Gastronomía Completa
                 </h4>
                 <p className="font-sans text-[#28211A]/75 text-xs leading-relaxed font-light">
