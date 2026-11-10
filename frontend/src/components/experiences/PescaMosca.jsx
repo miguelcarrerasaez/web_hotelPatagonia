@@ -60,7 +60,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
       <main>
         {/* 2. HERO CON VIDEO DE FONDO Y FALLBACK DE IMAGEN */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-end pt-32 pb-16 bg-[#2C3E35] overflow-hidden">
-          {/* Imagen de respaldo si falla o no carga el video */}
           <img
             src="/images/pescaMosca/ecosistemaTrucha.png"
             onError={handleImgError}
@@ -80,11 +79,9 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
             <source src="/videos/pescaMosca.mp4" type="video/mp4" />
           </video>
 
-          {/* Overlay oscuro para legibilidad */}
           <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
 
           <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            {/* Breadcrumb */}
             <p className="font-sans text-xs md:text-sm text-white/80 font-medium tracking-wide flex items-center gap-1.5 mb-6">
               <button
                 onClick={goHome}
@@ -113,7 +110,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
         {/* 3. SECCIÓN: EL TERRITORIO & LAS AGUAS */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-14 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Imagen Izquierda */}
             <div className="w-full h-[360px] sm:h-[440px] lg:h-[480px] overflow-hidden bg-[#EFECE6] shadow-sm">
               <img
                 src="/images/pescaMosca/ecosistemaTrucha.png"
@@ -123,7 +119,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               />
             </div>
 
-            {/* Contenido Derecho */}
             <div className="flex flex-col justify-center">
               <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#8C8377] font-medium block mb-3">
                 EL TERRITORIO &amp; LAS AGUAS
@@ -149,7 +144,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
         {/* 4. SECCIÓN 3 COLUMNAS: CARACTERÍSTICAS TÉCNICAS */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-            {/* Columna 1 */}
             <div className="flex flex-col">
               <div className="w-full h-[260px] sm:h-[300px] overflow-hidden bg-[#EFECE6] mb-5">
                 <img
@@ -167,7 +161,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </p>
             </div>
 
-            {/* Columna 2 */}
             <div className="flex flex-col">
               <div className="w-full h-[260px] sm:h-[300px] overflow-hidden bg-[#EFECE6] mb-5">
                 <img
@@ -185,7 +178,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
               </p>
             </div>
 
-            {/* Columna 3 */}
             <div className="flex flex-col">
               <div className="w-full h-[260px] sm:h-[300px] overflow-hidden bg-[#EFECE6] mb-5">
                 <img
@@ -205,9 +197,8 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 5. BANNER INTERMEDIO (Sin opacidad mix-blend / idéntico a Figma) */}
+        {/* 5. BANNER INTERMEDIO */}
         <section className="relative w-full py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
-          {/* Imagen de fondo nítida */}
           <img
             src="/images/pescaMosca/bannerPesca.png"
             onError={handleImgError}
@@ -215,7 +206,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
 
-          {/* Sombra sutil para lectura de texto */}
           <div className="absolute inset-0 bg-black/45 z-10" />
 
           <div className="relative z-20 max-w-[1440px] mx-auto text-center flex flex-col items-center">
@@ -234,7 +224,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 6. SECCIÓN PROGRAMAS & ITINERARIOS (Layout en 2 columnas como Figma) */}
+        {/* 6. SECCIÓN PROGRAMAS & ITINERARIOS (Proporción 1/3 con efecto Glass y tipografía Montserrat) */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
           <div className="text-left mb-10">
             <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#8C8377] font-medium block mb-2">
@@ -248,53 +238,62 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
             </p>
           </div>
 
-          {/* Grid de 2 columnas: Texto + Imagen nítida */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 shadow-md overflow-hidden rounded-sm border border-[#2C3E35]/10">
-            {/* Texto Izquierdo */}
-            <div className="bg-[#2C3E35] text-white p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
-              <span className="font-sans text-xs uppercase tracking-widest text-[#AD9E7A] font-semibold block mb-6">
+          {/* Tarjeta con foto a tamaño completo y tarjeta flotante Glass del 1/3 en la izquierda */}
+          <div className="relative w-full min-h-[600px] lg:min-h-[680px] rounded-sm overflow-hidden shadow-xl border border-black/10 bg-[#2C3E35]">
+            {/* Imagen de fondo nítida ocupando todo el ancho */}
+            <img
+              src="/images/pescaMosca/programa.png"
+              onError={handleImgError}
+              alt="Itinerario Pesca en bote por la Patagonia"
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            />
+
+            {/* Sombra sutil global sobre la fotografía */}
+            <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none" />
+
+            {/* Panel de información con efecto Glass en proporción 1/3 del ancho (w-full lg:w-1/3) */}
+            <div className="relative z-10 w-full lg:w-1/3 min-h-[600px] lg:min-h-[680px] bg-[#121c17]/65 backdrop-blur-md p-8 sm:p-10 lg:p-12 text-white border-r border-white/15 flex flex-col justify-center">
+              <span className="font-['Montserrat'] text-xs uppercase tracking-widest text-[#AD9E7A] font-semibold block mb-6">
                 PROGRAMA BASE (8 DÍAS / 7 NOCHES)
               </span>
 
-              <div className="space-y-6 text-sm sm:text-base font-light text-white/90">
+              <div className="space-y-6 text-sm font-light text-white/90">
                 <div>
-                  <h3 className="font-serif text-white text-xl mb-1">Días 1 &amp; 2</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-white/80">
+                  <h3 className="font-['Montserrat'] font-medium text-white text-xl sm:text-2xl mb-1.5 tracking-tight">
+                    Días 1 &amp; 2
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/80">
                     Recepción privada en Aeropuerto Arturo Merino Benítez (SCL). Traslado y hospedaje en hotel boutique urbano. Jornada de aclimatación con cata de vinos chilenos de autor y cena de bienvenida para revisar el plan de pesca.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-white text-xl mb-1">Día 3</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-white/80">
+                  <h3 className="font-['Montserrat'] font-medium text-white text-xl sm:text-2xl mb-1.5 tracking-tight">
+                    Día 3
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/80">
                     Vuelo matutino hacia el Aeropuerto de Balmaceda (BBA). Encuentro directo con el equipo de guías. Primera sesión de pesca por la tarde en ruta hacia Coyhaique y check-in en Patagonia House.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-white text-xl mb-1">Días 4 al 7</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-white/80">
+                  <h3 className="font-['Montserrat'] font-medium text-white text-xl sm:text-2xl mb-1.5 tracking-tight">
+                    Días 4 al 7
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/80">
                     Cuatro días completos explorando cuencas icónicas (Río Simpson, Paloma, arroyos de cordillera y lagunas privadas). Flotadas y vadeo técnico planificados cada víspera según eclosiones y clima. Almuerzo campestre gourmet a orilla de río y cenas de autor en Restaurant Bòrek.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-white text-xl mb-1">Día 8</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-white/80">
+                  <h3 className="font-['Montserrat'] font-medium text-white text-xl sm:text-2xl mb-1.5 tracking-tight">
+                    Día 8
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/80">
                     Desayuno artesanal en el lodge y traslado privado al Aeropuerto de Balmaceda para conectar con el vuelo de regreso.
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Imagen Derecha Nítida */}
-            <div className="w-full min-h-[380px] lg:min-h-full bg-[#EFECE6]">
-              <img
-                src="/images/pescaMosca/programa.png"
-                onError={handleImgError}
-                alt="Itinerario Pesca en bote por la Patagonia"
-                className="w-full h-full object-cover"
-              />
             </div>
           </div>
         </section>
@@ -355,7 +354,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
         <section id="reserva-pesca" className="py-16 md:py-24 bg-[#F9F8F5]">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              {/* Lado Izquierdo */}
               <div className="flex flex-col justify-center pt-4">
                 <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-4">
                   Diseña tu expedición
@@ -365,7 +363,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
                 </p>
               </div>
 
-              {/* Lado Derecho: Formulario */}
               <div className="bg-[#EFECE6] p-6 sm:p-8 border border-[#2C3E35]/10 shadow-sm">
                 <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
