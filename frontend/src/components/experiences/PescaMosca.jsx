@@ -253,9 +253,6 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
 
             {/* Panel de información con efecto Glass en proporción 1/3 del ancho (w-full lg:w-1/3) */}
             <div className="relative z-10 w-full lg:w-1/3 min-h-[600px] lg:min-h-[680px] bg-[#121c17]/65 backdrop-blur-md p-8 sm:p-10 lg:p-12 text-white border-r border-white/15 flex flex-col justify-center">
-              <span className="font-['Montserrat'] text-xs uppercase tracking-widest text-[#AD9E7A] font-semibold block mb-6">
-                PROGRAMA BASE (8 DÍAS / 7 NOCHES)
-              </span>
 
               <div className="space-y-6 text-sm font-light text-white/90">
                 <div>
