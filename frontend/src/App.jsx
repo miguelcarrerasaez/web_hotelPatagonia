@@ -8,6 +8,7 @@ import { Apartment } from './components/rooms/Apartment';
 import { BienestarTinajas } from './components/experiences/BienestarTinajas';
 import { PescaMosca } from './components/experiences/PescaMosca';
 import { Borek } from './components/gastronomia/Borek';
+import { SalvajeCorazon } from './components/experiencias/SalvajeCorazon';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -53,9 +54,13 @@ export function App() {
   }
 
   if (currentPath === '/gastronomia') {
-  return <Borek navigate={navigate} />;
+    return <Borek navigate={navigate} />;
   }
-  
+
+  if (currentPath === '/experiencias/expediciones') {
+    return <SalvajeCorazon navigate={navigate} />;
+  }
+
   return <Home navigate={navigate} />;
 }
 
