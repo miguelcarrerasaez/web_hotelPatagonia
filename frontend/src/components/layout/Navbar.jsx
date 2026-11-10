@@ -88,7 +88,6 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
 
               <nav>
                 <ul className="flex flex-col gap-3 font-sans text-sm font-medium tracking-wide">
-                  {/* NUEVA OPCIÓN: Volver a Home */}
                   <li>
                     <button
                       onClick={() => handleNav('/')}
@@ -107,32 +106,24 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     </button>
                   </li>
 
-                  {/* Sección Experiencias */}
+                  {/* Sección Experiencias (al hacer clic se despliega el submenú) */}
                   <li>
-                    <div className="flex items-center justify-between w-full py-0.5">
-                      <button
-                        onClick={() => handleNav('/experiencias')}
-                        className="hover:text-[#C88E4B] transition-colors text-left font-sans text-sm font-medium tracking-wide cursor-pointer flex-grow"
+                    <button
+                      onClick={() => setShowExperiences(!showExperiences)}
+                      className="flex items-center justify-between w-full hover:text-[#C88E4B] transition-colors text-left font-sans text-sm font-medium tracking-wide cursor-pointer py-0.5 focus:outline-none"
+                    >
+                      <span>Experiencias</span>
+                      <svg
+                        className={`w-3.5 h-3.5 stroke-current transition-transform duration-300 ${
+                          showExperiences ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
                       >
-                        Experiencias
-                      </button>
-                      <button
-                        onClick={() => setShowExperiences(!showExperiences)}
-                        className="p-1 hover:text-[#C88E4B] transition-colors focus:outline-none cursor-pointer"
-                        aria-label="Desplegar experiencias"
-                      >
-                        <svg
-                          className={`w-3.5 h-3.5 stroke-current transition-transform duration-300 ${
-                            showExperiences ? 'rotate-180' : ''
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                      </button>
-                    </div>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>
+                    </button>
 
                     {/* Submenú de Experiencias */}
                     <div
@@ -142,19 +133,19 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     >
                       <button
                         onClick={() => handleNav('/experiencias/bienestar')}
-                        className="hover:text-white transition-colors text-left cursor-pointer py-0.5"
+                        className="hover:text-[#C88E4B] transition-colors text-left cursor-pointer py-0.5"
                       >
                         · Bienestar y tinajas
                       </button>
                       <button
                         onClick={() => handleNav('/experiencias/expediciones')}
-                        className="hover:text-white transition-colors text-left cursor-pointer py-0.5"
+                        className="hover:text-[#C88E4B] transition-colors text-left cursor-pointer py-0.5"
                       >
                         · Expediciones y Tours (Salvaje Corazón)
                       </button>
                       <button
                         onClick={() => handleNav('/experiencias/pesca-mosca')}
-                        className="hover:text-white transition-colors text-left cursor-pointer py-0.5"
+                        className="hover:text-[#C88E4B] transition-colors text-left cursor-pointer py-0.5"
                       >
                         · Pesca con Mosca / Fly fishing
                       </button>
