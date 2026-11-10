@@ -111,7 +111,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src="/images/borek/videoBorek1.mp4" type="video/mp4" />
+                  <source src="/images/borek/videoBorek1.webm" type="video/webm" />
                 </video>
                 <img
                   src="/images/borek/videoBorek1.png"
@@ -131,7 +131,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src="/images/borek/videoBorek2.mp4" type="video/mp4" />
+                  <source src="/images/borek/videoBorek2.webm" type="video/webm" />
                 </video>
                 <img
                   src="/images/borek/videoBorek2.png"
