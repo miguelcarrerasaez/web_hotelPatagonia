@@ -7,6 +7,7 @@ import { JuniorSuite } from './components/rooms/JuniorSuite';
 import { Apartment } from './components/rooms/Apartment';
 import { BienestarTinajas } from './components/experiences/BienestarTinajas';
 import { PescaMosca } from './components/experiences/PescaMosca';
+import { Borek } from './components/gastronomia/Borek';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -51,6 +52,10 @@ export function App() {
     return <PescaMosca navigate={navigate} />;
   }
 
+  if (currentPath === '/gastronomia') {
+  return <Borek navigate={navigate} />;
+  }
+  
   return <Home navigate={navigate} />;
 }
 
