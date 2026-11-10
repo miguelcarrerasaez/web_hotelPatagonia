@@ -251,7 +251,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
 
         {/* 3. LOGO SALVAJE CORAZÓN & MÁS ALLÁ DEL MAPA */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-14 md:py-20 text-center flex flex-col items-center">
-          <div className="w-56 sm:w-72 mb-8">
+          <div className="w-72 sm:w-[420px] md:w-[540px] lg:w-[640px] mb-8 transition-all duration-300">
             <img
               src="/images/salvajeCorazon/logoSalvaje.png"
               onError={handleImgError}
