@@ -6,6 +6,7 @@ import { Superior } from './components/rooms/Superior';
 import { JuniorSuite } from './components/rooms/JuniorSuite';
 import { Apartment } from './components/rooms/Apartment';
 import { BienestarTinajas } from './components/experiences/BienestarTinajas';
+import { PescaMosca } from './components/experiences/PescaMosca';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -44,6 +45,10 @@ export function App() {
 
   if (currentPath === '/experiencias/bienestar') {
     return <BienestarTinajas navigate={navigate} />;
+  }
+
+  if (currentPath === '/experiencias/pesca-mosca' || currentPath === '/pesca-mosca') {
+    return <PescaMosca navigate={navigate} />;
   }
 
   return <Home navigate={navigate} />;

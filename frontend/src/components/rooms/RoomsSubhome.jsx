@@ -208,11 +208,11 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 4. SECCIÓN "NUESTRO ECOSISTEMA" (IGUAL A FIGMA) */}
+        {/* 4. SECCIÓN "NUESTRO ECOSISTEMA" */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16 border-t border-[#2C3E35]/10">
           <div className="mb-8">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
-              NUESTROS ECOSISTEMA
+              NUESTRO ECOSISTEMA
             </span>
             <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal mb-3">
               Descanso y exploración en un mismo viaje
@@ -251,16 +251,16 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
             </div>
 
-            {/* Tarjeta 2: Pesca & Exploración */}
+            {/* Tarjeta 2: Pesca & Exploración (Redirige a /experiencias/pesca-mosca) */}
             <div
-              onClick={() => handleNavigate('/experiencias/expediciones')}
+              onClick={() => handleNavigate('/experiencias/pesca-mosca')}
               className="group cursor-pointer relative h-[420px] sm:h-[460px] overflow-hidden shadow-sm bg-[#EFECE6]"
             >
               <img
                 src="/images/pescasubHome.png"
                 onError={(e) => {
                   if (e.target.src.includes('pescasubHome.png')) {
-                    e.target.src = '/images/exploracionHome.png';
+                    e.target.src = '/images/pescaMosca/pescasubHome.png';
                   } else {
                     handleImgError(e);
                   }
