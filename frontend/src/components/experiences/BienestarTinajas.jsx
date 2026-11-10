@@ -331,4 +331,60 @@ export function BienestarTinajas({ lang = 'ES', setLang = () => {}, navigate }) 
                         placeholder="2"
                         value={formData.personas}
                         onChange={(e) => setFormData({ ...formData, personas: e.target.value })}
-                        className="w-full bg-white border border-[#2C3E35]/15 px-
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        ¿Qué día deseas reservar?*
+                      </label>
+                      <input
+                        type="date"
+                        required
+                        value={formData.fecha}
+                        onChange={(e) => setFormData({ ...formData, fecha: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-sans text-xs font-medium text-[#8C8377] uppercase tracking-wider mb-1">
+                        Horario
+                      </label>
+                      <select
+                        value={formData.horario}
+                        onChange={(e) => setFormData({ ...formData, horario: e.target.value })}
+                        className="w-full bg-white border border-[#2C3E35]/15 px-3 py-2 font-sans text-sm text-[#28211A] focus:outline-none focus:border-[#2C3E35]"
+                      >
+                        <option value="">Selecciona horario...</option>
+                        <option value="12:00 - 15:00">12:00 - 15:00 hrs</option>
+                        <option value="15:30 - 18:30">15:30 - 18:30 hrs</option>
+                        <option value="19:00 - 22:00">19:00 - 22:00 hrs</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#2C3E35] text-white font-sans text-sm font-medium py-3 hover:bg-[#1f2d26] transition-colors mt-3 cursor-pointer"
+                  >
+                    Enviar
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* 8. Footer */}
+      <Footer />
+    </div>
+  );
+}
+
+export default BienestarTinajas;
