@@ -154,7 +154,7 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                       </button>
                       <button
                         onClick={() => handleNav('/experiencias/pesca-mosca')}
-                        className="hover:text-[#C88E4B] text-white transition-colors text-left cursor-pointer py-0.5 font-normal"
+                        className="hover:text-white transition-colors text-left cursor-pointer py-0.5"
                       >
                         · Pesca con Mosca / Fly fishing
                       </button>
