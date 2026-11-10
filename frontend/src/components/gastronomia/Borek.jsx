@@ -6,6 +6,9 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
 
+  // Estado para la imagen seleccionada en el Modal/Lightbox
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // Imágenes de la galería
   const galleryImages = [
     '/images/borek/galeria1.png',
@@ -112,6 +115,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="w-full h-full object-cover"
                 >
                   <source src="/images/borek/videoBorek1.webm" type="video/webm" />
+                  <source src="/images/borek/videoBorek1.mp4" type="video/mp4" />
                 </video>
                 <img
                   src="/images/borek/videoBorek1.png"
@@ -132,6 +136,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="w-full h-full object-cover"
                 >
                   <source src="/images/borek/videoBorek2.webm" type="video/webm" />
+                  <source src="/images/borek/videoBorek2.mp4" type="video/mp4" />
                 </video>
                 <img
                   src="/images/borek/videoBorek2.png"
@@ -148,7 +153,6 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
         {/* 4. SECCIÓN LOGO & MANIFIESTO GASTRONÓMICO */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16 border-t border-[#2C3E35]/10">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            {/* Logo BÖREK */}
             <div className="mb-8 w-48 sm:w-64">
               <img
                 src="/images/borek/logoBorek.png"
@@ -226,7 +230,6 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
         {/* 6. SECCIÓN "VISITA NUESTRO RESTAURANTE" */}
         <section id="reserva-borek" className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center bg-[#F4F1EA] border border-[#2C3E35]/10 p-6 sm:p-10 lg:p-12 shadow-sm">
-            {/* Lado Izquierdo: Imagen terraza/visita */}
             <div className="w-full h-[320px] sm:h-[400px] lg:h-[440px] overflow-hidden bg-[#EFECE6]">
               <img
                 src="/images/borek/visita.png"
@@ -236,7 +239,6 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
               />
             </div>
 
-            {/* Lado Derecho: Contenido explicativo */}
             <div className="flex flex-col justify-center px-2 lg:px-6">
               <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#8C8377] font-medium block mb-3">
                 VISITA NUESTRO RESTAURANTE
@@ -261,7 +263,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 7. SECCIÓN GALERÍA */}
+        {/* 7. SECCIÓN GALERÍA CON EXPANSION CLICKABLE */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16 border-t border-[#2C3E35]/10">
           <div className="flex justify-between items-end mb-8">
             <div>
@@ -297,37 +299,90 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm">
+            {/* Foto 1 */}
+            <div
+              onClick={() => setSelectedImage(galleryImages[currentGalleryIndex])}
+              className="group h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
+            >
               <img
                 src={galleryImages[currentGalleryIndex]}
                 onError={handleImgError}
                 alt={`Galería Börek ${currentGalleryIndex + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+                  Ampliar
+                </span>
+              </div>
             </div>
 
-            <div className="hidden md:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm">
+            {/* Foto 2 */}
+            <div
+              onClick={() => setSelectedImage(galleryImages[(currentGalleryIndex + 1) % galleryImages.length])}
+              className="group hidden md:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
+            >
               <img
                 src={galleryImages[(currentGalleryIndex + 1) % galleryImages.length]}
                 onError={handleImgError}
                 alt={`Galería Börek ${(currentGalleryIndex + 2) % galleryImages.length}`}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+                  Ampliar
+                </span>
+              </div>
             </div>
 
-            <div className="hidden lg:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm">
+            {/* Foto 3 */}
+            <div
+              onClick={() => setSelectedImage(galleryImages[(currentGalleryIndex + 2) % galleryImages.length])}
+              className="group hidden lg:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
+            >
               <img
                 src={galleryImages[(currentGalleryIndex + 2) % galleryImages.length]}
                 onError={handleImgError}
                 alt={`Galería Börek ${(currentGalleryIndex + 3) % galleryImages.length}`}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+                  Ampliar
+                </span>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* 8. Footer */}
+      {/* 8. MODAL / LIGHTBOX PARA MOSTRAR IMAGEN AMPLIADA */}
+      {selectedImage && (
+        <div
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out animate-fadeIn"
+        >
+          {/* Botón cerrar */}
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-6 right-6 text-white text-3xl font-light hover:text-[#C88E4B] transition-colors cursor-pointer z-50 p-2"
+            aria-label="Cerrar vista ampliada"
+          >
+            ✕
+          </button>
+
+          {/* Imagen ampliada */}
+          <img
+            src={selectedImage}
+            alt="Galería Börek ampliada"
+            onError={handleImgError}
+            className="max-w-full max-h-[90vh] object-contain shadow-2xl rounded-sm transition-transform duration-300"
+            onClick={(e) => e.stopPropagation()} // Evita cerrar si el usuario hace clic sobre la misma foto
+          />
+        </div>
+      )}
+
+      {/* 9. Footer */}
       <Footer />
     </div>
   );
