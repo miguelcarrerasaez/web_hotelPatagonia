@@ -6,9 +6,6 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
 
-  // Estado para la imagen seleccionada en el Modal/Lightbox
-  const [selectedImage, setSelectedImage] = useState(null);
-
   // Imágenes de la galería
   const galleryImages = [
     '/images/borek/galeria1.png',
@@ -22,7 +19,10 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
   ];
 
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  // Guardamos el índice numérico de la foto ampliada (null si está cerrado)
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
+  // Reproducción automática de videos
   useEffect(() => {
     [video1Ref, video2Ref].forEach((ref) => {
       if (ref.current) {
@@ -32,6 +32,15 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
     });
   }, []);
 
+  // Avance automático del carrusel principal cada 4 segundos
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [galleryImages.length]);
+
+  // Controles de la galería principal
   const nextGallery = () => {
     setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
   };
@@ -41,6 +50,32 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
       prev === 0 ? galleryImages.length - 1 : prev - 1
     );
   };
+
+  // Controles dentro del Lightbox (Modal)
+  const nextLightbox = (e) => {
+    e?.stopPropagation();
+    setLightboxIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevLightbox = (e) => {
+    e?.stopPropagation();
+    setLightboxIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
+
+  // Navegación por teclado dentro del Lightbox
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'Escape') setLightboxIndex(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex]);
 
   const handleImgError = (e) => {
     if (e.target.src.endsWith('.png')) {
@@ -168,7 +203,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 5. SECCIÓN 3 PILARES (Frame 295) */}
+        {/* 5. SECCIÓN 3 PILARES */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {/* Pilar 1 */}
@@ -263,7 +298,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 7. SECCIÓN GALERÍA CON EXPANSION CLICKABLE */}
+        {/* 7. SECCIÓN GALERÍA CON CARRUSEL */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16 border-t border-[#2C3E35]/10">
           <div className="flex justify-between items-end mb-8">
             <div>
@@ -298,10 +333,11 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Grilla dinámica de fotos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ease-in-out">
             {/* Foto 1 */}
             <div
-              onClick={() => setSelectedImage(galleryImages[currentGalleryIndex])}
+              onClick={() => setLightboxIndex(currentGalleryIndex)}
               className="group h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
             >
               <img
@@ -310,8 +346,8 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                 alt={`Galería Börek ${currentGalleryIndex + 1}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+              <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/60 px-4 py-2 backdrop-blur-sm rounded-sm">
                   Ampliar
                 </span>
               </div>
@@ -319,7 +355,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
 
             {/* Foto 2 */}
             <div
-              onClick={() => setSelectedImage(galleryImages[(currentGalleryIndex + 1) % galleryImages.length])}
+              onClick={() => setLightboxIndex((currentGalleryIndex + 1) % galleryImages.length)}
               className="group hidden md:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
             >
               <img
@@ -328,8 +364,8 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                 alt={`Galería Börek ${(currentGalleryIndex + 2) % galleryImages.length}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+              <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/60 px-4 py-2 backdrop-blur-sm rounded-sm">
                   Ampliar
                 </span>
               </div>
@@ -337,7 +373,7 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
 
             {/* Foto 3 */}
             <div
-              onClick={() => setSelectedImage(galleryImages[(currentGalleryIndex + 2) % galleryImages.length])}
+              onClick={() => setLightboxIndex((currentGalleryIndex + 2) % galleryImages.length)}
               className="group hidden lg:block h-[380px] sm:h-[460px] bg-[#EFECE6] overflow-hidden shadow-sm cursor-pointer relative"
             >
               <img
@@ -346,8 +382,8 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
                 alt={`Galería Börek ${(currentGalleryIndex + 3) % galleryImages.length}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-white text-xs uppercase tracking-widest bg-black/50 px-4 py-2 backdrop-blur-sm rounded-sm">
+              <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="text-white text-xs uppercase tracking-widest bg-black/60 px-4 py-2 backdrop-blur-sm rounded-sm">
                   Ampliar
                 </span>
               </div>
@@ -356,29 +392,55 @@ export function Borek({ lang = 'ES', setLang = () => {}, navigate }) {
         </section>
       </main>
 
-      {/* 8. MODAL / LIGHTBOX PARA MOSTRAR IMAGEN AMPLIADA */}
-      {selectedImage && (
+      {/* 8. MODAL LIGHTBOX CON NAVEGACIÓN DENTRO DE LA IMAGEN AMPLIADA */}
+      {lightboxIndex !== null && (
         <div
-          onClick={() => setSelectedImage(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out animate-fadeIn"
+          onClick={() => setLightboxIndex(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 cursor-pointer select-none"
         >
-          {/* Botón cerrar */}
+          {/* Botón cerrar (Esc) */}
           <button
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setLightboxIndex(null)}
             className="absolute top-6 right-6 text-white text-3xl font-light hover:text-[#C88E4B] transition-colors cursor-pointer z-50 p-2"
             aria-label="Cerrar vista ampliada"
           >
             ✕
           </button>
 
+          {/* Flecha Izquierda */}
+          <button
+            onClick={prevLightbox}
+            aria-label="Imagen anterior"
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#2C3E35] text-white p-3 sm:p-4 rounded-full backdrop-blur-sm transition-all cursor-pointer z-50 border border-white/20"
+          >
+            <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
           {/* Imagen ampliada */}
-          <img
-            src={selectedImage}
-            alt="Galería Börek ampliada"
-            onError={handleImgError}
-            className="max-w-full max-h-[90vh] object-contain shadow-2xl rounded-sm transition-transform duration-300"
-            onClick={(e) => e.stopPropagation()} // Evita cerrar si el usuario hace clic sobre la misma foto
-          />
+          <div className="relative max-w-full max-h-[85vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={galleryImages[lightboxIndex]}
+              alt={`Galería Börek ampliada ${lightboxIndex + 1}`}
+              onError={handleImgError}
+              className="max-w-full max-h-[80vh] object-contain shadow-2xl rounded-sm transition-all duration-300"
+            />
+            <span className="text-white/70 font-sans text-xs uppercase tracking-widest mt-4">
+              {lightboxIndex + 1} / {galleryImages.length}
+            </span>
+          </div>
+
+          {/* Flecha Derecha */}
+          <button
+            onClick={nextLightbox}
+            aria-label="Siguiente imagen"
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#2C3E35] text-white p-3 sm:p-4 rounded-full backdrop-blur-sm transition-all cursor-pointer z-50 border border-white/20"
+          >
+            <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
         </div>
       )}
 
