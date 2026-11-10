@@ -30,7 +30,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
     }
   };
 
-  // Datos de los 6 tours conectados con las fotos de public/images/salvajeCorazon/
+  // Datos de los 6 tours según Figma
   const toursData = [
     {
       id: 'norte',
@@ -46,8 +46,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
         '2. Aventura en aguas blancas (Futaleufú).',
         '3. Descenso al sur y recuperación (Esquel y Termas de Puyuhuapi).',
       ],
-      imgCard: '/images/salvajeCorazon/tour1.png',
-      imgModal: '/images/salvajeCorazon/tour2.png', // Imagen de la Vizcacha en Pumalín
+      imgModal: '/images/salvajeCorazon/tour2.png', // Foto Vizcacha en Pumalín
     },
     {
       id: 'sur',
@@ -63,7 +62,6 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
         '2. El gran lago turquesa y la cuenca del Río Cochrane.',
         '3. Cavernas de mármol y ventisqueros del Hielo Norte (Río Exploradores).',
       ],
-      imgCard: '/images/salvajeCorazon/tour3.png',
       imgModal: '/images/salvajeCorazon/tour3.png',
     },
     {
@@ -80,7 +78,6 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
         '2. Coyhaique - Cochrane',
         '3. Tramo más extremo hasta Villa O’Higgins',
       ],
-      imgCard: '/images/salvajeCorazon/tour4.png',
       imgModal: '/images/salvajeCorazon/tour4.png',
     },
     {
@@ -93,7 +90,6 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
       experience:
         'Desconexión absoluta. Caminatas a glaciares milenarios, exploración de bosques de lenga y montañismo alpino desde un campamento exclusivo por sobre la línea de árboles.',
       phases: [],
-      imgCard: '/images/salvajeCorazon/tour5.png',
       imgModal: '/images/salvajeCorazon/tour5.png',
     },
     {
@@ -106,7 +102,6 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
       experience:
         'Aislamiento espléndido. Operamos un campamento base a orillas de un lago de montaña, explorando valles glaciares, antiguas sendas de gauchos y sitios de arte rupestre tehuelche.',
       phases: [],
-      imgCard: '/images/salvajeCorazon/tour6.png',
       imgModal: '/images/salvajeCorazon/tour6.png',
     },
     {
@@ -119,7 +114,6 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
       experience:
         'Navegación hacia estancias remotas, caminatas por valles glaciares vírgenes, asados tradicionales en puestos de gauchos y la llegada al borde mismo del caparazón de hielo más grande del hemisferio sur.',
       phases: [],
-      imgCard: '/images/salvajeCorazon/tour7.png',
       imgModal: '/images/salvajeCorazon/tour7.png',
     },
   ];
@@ -275,41 +269,42 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
           </p>
         </section>
 
-        {/* 4. SECCIÓN NUESTROS TOURS (CON TARJETAS Y MODAL EXPANDIBLE) */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
-          <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl font-normal mb-8 text-center sm:text-left">
-            Nuestros Tours
-          </h2>
+        {/* 4. SECCIÓN NUESTROS TOURS (Fondo de paisaje completo con tarjetas Glass sin foto individual) */}
+        <section className="relative w-full py-16 md:py-24 overflow-hidden bg-[#2C3E35]">
+          {/* Imagen de fondo otoñal para toda la sección */}
+          <img
+            src="/images/salvajeCorazon/tour1.png"
+            onError={handleImgError}
+            alt="Fondo Paisaje Nuestros Tours"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+          {/* Overlay oscuro para lectura e idéntico a Figma */}
+          <div className="absolute inset-0 bg-black/45 z-10 pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {toursData.map((tour) => (
-              <div
-                key={tour.id}
-                onClick={() => setSelectedTour(tour)}
-                className="group relative h-[360px] sm:h-[400px] overflow-hidden bg-[#2C3E35] shadow-md cursor-pointer transition-transform duration-300 hover:-translate-y-1"
-              >
-                {/* Imagen de fondo del card */}
-                <img
-                  src={tour.imgCard}
-                  onError={handleImgError}
-                  alt={tour.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-300"
-                />
+          <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+            <h2 className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-10 text-center">
+              Nuestros Tours
+            </h2>
 
-                {/* Capa de texto encima */}
-                <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col justify-end text-white bg-gradient-to-t from-black/80 via-black/30 to-transparent">
-                  <h3 className="font-serif text-xl sm:text-2xl font-normal mb-2 leading-tight">
-                    {tour.title}
-                  </h3>
-                  <p className="font-sans text-xs sm:text-sm font-light text-white/85 line-clamp-3 leading-relaxed">
-                    {tour.shortDesc}
-                  </p>
-                  <span className="inline-block mt-4 text-xs font-sans uppercase tracking-widest text-[#AD9E7A] font-semibold">
-                    Ver detalles del tour →
-                  </span>
+            {/* Grilla de 6 tarjetas de cristal oscuro */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {toursData.map((tour) => (
+                <div
+                  key={tour.id}
+                  onClick={() => setSelectedTour(tour)}
+                  className="bg-[#1b2520]/80 backdrop-blur-md border border-white/15 p-6 sm:p-8 flex flex-col justify-between text-white min-h-[260px] sm:min-h-[290px] shadow-lg hover:bg-[#1b2520]/95 hover:border-white/30 transition-all cursor-pointer group"
+                >
+                  <div>
+                    <h3 className="font-serif text-xl sm:text-2xl font-normal mb-3 leading-snug group-hover:text-[#AD9E7A] transition-colors">
+                      {tour.title}
+                    </h3>
+                    <p className="font-sans text-xs sm:text-sm font-light text-white/85 leading-relaxed">
+                      {tour.shortDesc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
@@ -317,7 +312,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
         {selectedTour && (
           <div
             onClick={() => setSelectedTour(null)}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fadeIn"
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fadeIn"
           >
             <div
               onClick={(e) => e.stopPropagation()}
@@ -520,7 +515,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 7. SECCIÓN "DISEÑA TU EXPEDICIÓN CON NOSOTROS" (NUEVO FORMULARIO) */}
+        {/* 7. SECCIÓN "DISEÑA TU EXPEDICIÓN CON NOSOTROS" */}
         <section id="disena-expedicion" className="py-16 md:py-24 bg-[#F9F8F5]">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="bg-[#F4F1EA] border border-[#2C3E35]/10 shadow-sm p-8 sm:p-12 lg:p-16">
