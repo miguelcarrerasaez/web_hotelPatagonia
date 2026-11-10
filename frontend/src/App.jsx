@@ -7,8 +7,9 @@ import { JuniorSuite } from './components/rooms/JuniorSuite';
 import { Apartment } from './components/rooms/Apartment';
 import { BienestarTinajas } from './components/experiences/BienestarTinajas';
 import { PescaMosca } from './components/experiences/PescaMosca';
+import { SalvajeCorazon } from './components/experiences/SalvajeCorazon';
 import { Borek } from './components/gastronomia/Borek';
-import { SalvajeCorazon } from './components/experiencias/SalvajeCorazon';
+
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -57,7 +58,7 @@ export function App() {
     return <Borek navigate={navigate} />;
   }
 
-  if (currentPath === '/experiencias/expediciones') {
+  if (currentPath === '/experiencias/salvaje-corazon') {
     return <SalvajeCorazon navigate={navigate} />;
   }
 

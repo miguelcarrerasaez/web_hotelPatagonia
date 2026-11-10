@@ -106,7 +106,7 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                     </button>
                   </li>
 
-                  {/* Sección Experiencias (al hacer clic se despliega el submenú) */}
+                  {/* Sección Experiencias */}
                   <li>
                     <button
                       onClick={() => setShowExperiences(!showExperiences)}
@@ -138,10 +138,10 @@ export function Navbar({ lang = 'ES', setLang, darkText = false, navigate }) {
                         · Bienestar y tinajas
                       </button>
                       <button
-                        onClick={() => handleNav('/experiencias/expediciones')}
+                        onClick={() => handleNav('/experiencias/salvaje-corazon')}
                         className="hover:text-[#C88E4B] transition-colors text-left cursor-pointer py-0.5"
                       >
-                        · Expediciones y Tours (Salvaje Corazón)
+                        · Expediciones (Salvaje Corazón)
                       </button>
                       <button
                         onClick={() => handleNav('/experiencias/pesca-mosca')}
