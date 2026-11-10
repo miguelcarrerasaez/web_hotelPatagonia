@@ -76,7 +76,7 @@ export function PescaMosca({ lang = 'ES', setLang = () => {}, navigate }) {
             poster="/images/pescaMosca/ecosistemaTrucha.png"
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
           >
-            <source src="/videos/pescaMosca.mp4" type="video/mp4" />
+            <source src="/images/pescaMosca/pescaMosca.mp4" type="video/mp4" />
           </video>
 
           <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
