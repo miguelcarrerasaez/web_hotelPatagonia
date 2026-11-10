@@ -9,8 +9,8 @@ export function Ecosystem({ navigate }) {
     {
       title: 'Exploración',
       text: 'Sumérgete en la inmensidad salvaje de Aysén.',
-      img: '/images/exploracionHome.png',
-      link: '/experiencias/expediciones'
+      img: '/images/salvajeCorazon/heroSalvaje.png',
+      link: '/experiencias/salvaje-corazon'
     },
     {
       title: 'Gastronomía',
@@ -26,6 +26,12 @@ export function Ecosystem({ navigate }) {
       navigate(link);
     } else {
       window.location.href = link;
+    }
+  };
+
+  const handleImgError = (e, title) => {
+    if (title === 'Exploración' && e.target.src.includes('heroSalvaje.png')) {
+      e.target.src = '/images/exploracionHome.png';
     }
   };
 
@@ -55,6 +61,7 @@ export function Ecosystem({ navigate }) {
               <img
                 src={card.img}
                 alt={card.title}
+                onError={(e) => handleImgError(e, card.title)}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
@@ -75,3 +82,5 @@ export function Ecosystem({ navigate }) {
     </section>
   );
 }
+
+export default Ecosystem;
