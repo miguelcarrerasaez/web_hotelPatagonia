@@ -291,7 +291,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
                   className="bg-[#1a2620]/40 backdrop-blur-md border border-white/25 p-6 sm:p-8 flex flex-col justify-between text-white min-h-[260px] sm:min-h-[290px] shadow-xl hover:bg-[#1a2620]/65 hover:border-white/40 transition-all duration-300 cursor-pointer group rounded-sm"
                 >
                   <div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-normal mb-3 leading-snug group-hover:text-[#AD9E7A] transition-colors">
+                    <h3 className="font-sans text-xl sm:text-2xl font-normal mb-3 leading-snug group-hover:text-[#AD9E7A] transition-colors">
                       {tour.title}
                     </h3>
                     <p className="font-sans text-xs sm:text-sm font-light text-white/90 leading-relaxed">
@@ -341,7 +341,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
 
               {/* Contenido detallado del tour */}
               <div className="p-6 sm:p-8 md:p-10 text-[#28211A] space-y-4">
-                <h3 className="font-serif text-2xl sm:text-3xl text-[#2C3E35] font-normal leading-snug">
+                <h3 className="font-sans text-2xl sm:text-3xl text-[#2C3E35] font-normal leading-snug">
                   {selectedTour.title}
                 </h3>
 
@@ -427,7 +427,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
           {/* 3 Pilares debajo */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center sm:text-left pt-6">
             <div>
-              <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+              <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                 Centro de operaciones propio en Coyhaique
               </h4>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
@@ -436,7 +436,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
             </div>
 
             <div>
-              <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+              <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                 Expediciones 100% privadas y flexibles
               </h4>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
@@ -445,7 +445,7 @@ export function SalvajeCorazon({ lang = 'ES', setLang = () => {}, navigate }) {
             </div>
 
             <div>
-              <h4 className="font-serif text-[#2C3E35] text-lg font-normal mb-2">
+              <h4 className="font-sans text-[#2C3E35] text-lg font-normal mb-2">
                 El privilegio de llegar primero
               </h4>
               <p className="font-sans text-[#28211A]/75 text-xs sm:text-sm leading-relaxed font-light">
