@@ -219,25 +219,33 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 6. SELLOS Y CERTIFICACIONES (Distinción Turismo Sustentable & SERNATUR) */}
-        <section className="bg-[#F9F8F5] py-12 md:py-16">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-24 lg:gap-36">
-            <div className="h-24 sm:h-28 flex items-center justify-center">
-              <img
-                src="/images/logge/logo_turismo.png"
-                onError={handleImgError}
-                alt="Distinción Turismo Sustentable"
-                className="h-full w-auto object-contain"
-              />
-            </div>
+        {/* 6. SELLOS Y CERTIFICACIONES (Alineados a la grilla de Figma: 500x270px) */}
+        <section className="bg-[#F9F8F5] py-[50px]">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-28">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-12 gap-y-10 items-center">
+              {/* Columna Izquierda: Sello S alineado al borde izquierdo de las tarjetas */}
+              <div className="flex justify-center md:justify-start">
+                <div className="w-full max-w-[500px] h-[190px] sm:h-[230px] lg:h-[270px] flex items-center justify-center">
+                  <img
+                    src="/images/logge/logo_turismo.png"
+                    onError={handleImgError}
+                    alt="Distinción Turismo Sustentable"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
 
-            <div className="h-24 sm:h-28 flex items-center justify-center">
-              <img
-                src="/images/logge/logo_sernatur.png"
-                onError={handleImgError}
-                alt="Servicio Turístico Registrado SERNATUR"
-                className="h-full w-auto object-contain"
-              />
+              {/* Columna Derecha: Sello SERNATUR centrado en su columna */}
+              <div className="flex justify-center items-center">
+                <div className="h-[190px] sm:h-[230px] lg:h-[270px] flex items-center justify-center">
+                  <img
+                    src="/images/logge/logo_sernatur.png"
+                    onError={handleImgError}
+                    alt="Servicio Turístico Registrado SERNATUR"
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
