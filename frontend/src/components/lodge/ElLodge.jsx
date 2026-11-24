@@ -6,41 +6,42 @@ const sustainabilityPillars = [
     id: 'agua',
     title: 'Cuidamos el agua',
     description:
-      'Utilizamos aguas de vertiente y recolección de lluvias para riego, junto con duchas y grifería de bajo consumo. Puedes sumarte eligiendo no cambiar toallas o sábanas todos los días.',
+      'Utilizamos aguas de vertiente y aguas lluvias para riego. Además de duchas y grifería de bajo consumo. ¿Nos ayudas? Puedes elegir no cambiar toallas o sábanas todos los días.',
     icon: '/images/logge/icono_agua.svg',
   },
   {
     id: 'energia',
     title: 'Ahorramos energía',
     description:
-      'Contamos con iluminación LED, sensores de movimiento y aprovechamos al máximo la luz natural. Te invitamos a apagar luces y equipos al salir de tu habitación.',
+      'Iluminación LED y sensores de movimiento. Aprovechamos al máximo la luz natural. Apaga luces y equipos al salir.',
     icon: '/images/logge/icono_energia.svg',
   },
   {
     id: 'impacto',
     title: 'Tu visita tiene impacto',
     description:
-      'Con pequeñas acciones cotidianas durante tu estadía puedes marcar la diferencia. Gracias por ayudarnos a conservar la Patagonia.',
+      'Con pequeñas acciones, tú puedes marcar la diferencia. Gracias por ayudarnos a conservar la Patagonia.',
     icon: '/images/logge/icono_handmade.svg',
   },
   {
     id: 'naturaleza',
     title: 'Protegemos la naturaleza',
     description:
-      'Reducimos impresiones innecesarias y promovemos caminatas y excursiones de bajo impacto, respetando los senderos y sin extraer flora ni fauna.',
+      'No imprimimos más de lo necesario. Promovemos caminatas y excursiones de bajo impacto. Respeta senderos y no retires flora ni fauna.',
     icon: '/images/logge/icono_natura.svg',
   },
 ];
 
+// Nota: Puedes reemplazar los textos de `paragraphs` directamente con los strings literales de tu Figma
 const sustainabilityCards = [
   {
     id: 'tradiciones',
     title: 'Valore las tradiciones y costumbres locales',
     image: '/images/logge/tarjeta1.png',
     paragraphs: [
-      'Infórmate antes de viajar sobre las costumbres, festividades y tradiciones de Aysén para compartir e integrarte con la comunidad de manera respetuosa.',
-      'Incorpora algunas expresiones locales y dialoga con los habitantes del territorio para generar un intercambio cultural más cercano y significativo.',
-      'Cuida y respeta aquello que hace único al destino: su historia, arquitectura, cocina, música, arte y patrimonio cultural.',
+      'Antes de viajar, infórmese sobre las costumbres y tradiciones locales del destino que visitará (festividades costumbristas, efemérides, aniversarios, entre otros), para poder compartir, participar e integrarse con la comunidad de mejor manera.',
+      'Aprenda algunas expresiones en el idioma o modismos locales; con ello podrá lograr un contacto más cercano y significativo con los habitantes.',
+      'Respete y proteja todo aquello que hace de un destino un lugar único y diferente: desde su historia, arquitectura y valores culturales, hasta su música, arte, cocina, monumentos y patrimonio comunitario.',
     ],
   },
   {
@@ -48,10 +49,11 @@ const sustainabilityCards = [
     title: 'Apoye a la economía local',
     image: '/images/logge/tarjeta2.png',
     paragraphs: [
-      'Elige artesanías y productos elaborados en la zona para impulsar directamente el desarrollo de emprendimientos familiares y talleres locales.',
-      'Mantén un trato cordial y justo con artesanos y productores, promoviendo una relación comercial transparente y directa.',
-      'Evita adquirir artículos falsificados o que infrinjan normativas nacionales e internacionales, e infórmate sobre posibles restricciones de salida o entrada al país.',
-      'Contrata tours y servicios turísticos establecidos y operados por residentes y guías de la comunidad.',
+      'Prefiera artículos de artesanía local y productos elaborados en el destino; esto le permitirá contribuir al desarrollo de las economías familiares, detallistas y de pequeña escala.',
+      'Trate con respeto y amabilidad a vendedores y artesanos locales, promoviendo una relación comercial voluntaria y justa entre productores y consumidores.',
+      'No adquiera productos que evidentemente parezcan falsificados o que estén prohibidos por las normativas nacionales o internacionales.',
+      'Al contratar tours, procure siempre recurrir al comercio establecido para evitar estafas y engaños, prefiriendo servicios turísticos operados por habitantes de la comuna o destino.',
+      'Infórmese sobre productos que cuenten con restricción legal de salida o entrada al país visitado.',
     ],
   },
   {
@@ -59,10 +61,10 @@ const sustainabilityCards = [
     title: 'Respete el medio ambiente',
     image: '/images/logge/tarjeta3.png',
     paragraphs: [
-      'Evita productos cuya elaboración involucre especies de flora o fauna en peligro de extinción.',
-      'Prioriza traslados compartidos o alternativas de menor impacto ambiental para reducir tu huella de carbono durante el viaje.',
-      'Reduce, reutiliza y recicla residuos sólidos: lleva tu propia botella rellenable y evita envoltorios o bolsas plásticas de un solo uso.',
-      'Optimiza el consumo de agua y electricidad en el lodge reutilizando toallas y sábanas, y apagando luces o calefacción al salir.',
+      'Adquiera productos que no requieran para su elaboración el uso de plantas o animales en peligro de extinción.',
+      'Prefiera salidas grupales que permitan ahorrar recursos, dinero y combustible, disminuyendo su huella de carbono mediante medios de transporte más eficientes y menos contaminantes.',
+      'Reduzca, reutilice y recicle residuos sólidos durante su viaje: lleve su propia botella rellenable, evite productos con envoltorios innecesarios y rechace bolsas plásticas cuando pueda transportarlos de otro modo.',
+      'Reduzca su consumo de agua y electricidad en los alojamientos turísticos que visite (solicite reutilizar sus toallas y sábanas por más de un día y apague luces, calefacción y aire acondicionado al salir de la habitación).',
     ],
   },
   {
@@ -71,10 +73,13 @@ const sustainabilityCards = [
       'Sea cuidadoso al visitar áreas silvestres, patrimoniales, arqueológicas u otras que le parezcan frágiles y/o valiosas.',
     image: '/images/logge/tarjeta4.png',
     paragraphs: [
-      'Regresa con toda la basura generada en tus recorridos, incluidos los residuos orgánicos, para mantener limpio el entorno y no alterar la dieta de la fauna nativa.',
-      'Transita únicamente por caminos y senderos habilitados, prefiriendo visitas guiadas para evitar la erosión del suelo y fortalecer el trabajo local.',
-      'Respeta la normativa de parques y reservas protegidas, y nunca alimentes a la fauna silvestre.',
-      'Sigue siempre las señalizaciones de las comunidades locales, no retires piedras, plantas ni flores del entorno y contribuye al cuidado de la infraestructura respetando las tarifas de acceso.',
+      'Procure regresar con toda la basura generada en su visita a estas áreas (incluso los residuos orgánicos), ya que de lo contrario podría alterar la dieta de la fauna silvestre nativa, ensuciar el paisaje y afectar al resto de los visitantes.',
+      'Elija recorridos que provoquen el menor impacto sobre el paisaje, privilegiando caminos y senderos existentes. Prefiera visitas guiadas, evitando accidentes y disminuyendo la erosión del suelo, mientras fortalece el trabajo local.',
+      'No incurra en delitos ambientales: si visita un área protegida, recuerde que existe un reglamento creado para preservar lugares y especies de gran valor ecológico.',
+      'No alimente a la fauna silvestre.',
+      'Respete la señalización e indicaciones de las comunidades existentes en la zona que visita; esto permitirá una estadía más segura para usted, su familia y el entorno.',
+      'No retire recursos naturales como piedras, fósiles, caracoles, plantas o flores de su entorno original.',
+      'Contribuya al mantenimiento de la infraestructura y equipamiento de las áreas protegidas pagando la tarifa solicitada y utilizando adecuadamente sus instalaciones.',
     ],
   },
   {
@@ -82,11 +87,11 @@ const sustainabilityCards = [
     title: 'Sea un viajero informado y respetuoso',
     image: '/images/logge/tarjeta5.png',
     paragraphs: [
-      'Cumple las leyes y normativas locales vigentes en el territorio.',
-      'Respeta los derechos humanos y protege especialmente a niños y niñas frente a cualquier forma de vulneración o explotación.',
-      'Ten a mano información sobre asistencia médica y los contactos de emergencia o de tu representación consular en caso de imprevistos.',
-      'Revisa las condiciones meteorológicas antes de acceder a zonas cordilleranas y deja registro en Carabineros, CONAF o la institución pertinente si realizas salidas por tu cuenta.',
-      'Consulta en oficinas de información turística oficiales para acceder a datos actualizados y servicios debidamente registrados.',
+      'Cumpla las leyes y los reglamentos locales y nacionales.',
+      'Respete los derechos humanos y proteja a niños y niñas de cualquier forma de explotación, especialmente la sexual y laboral.',
+      'Infórmese sobre cómo recibir asistencia médica o ponerse en contacto con su embajada (para turistas extranjeros) en caso de emergencia.',
+      'Infórmese de las condiciones meteorológicas antes de acceder a zonas cordilleranas o de clima variable; si realiza recorridos por cuenta propia o en grupo hacia la montaña, deje registro de su visita en Carabineros, CONAF u otra institución pertinente.',
+      'Infórmese en oficinas de información turística con respaldo institucional oficial, público o privado, para obtener datos objetivos y contratar servicios que cumplan las disposiciones legales vigentes.',
     ],
   },
 ];
@@ -117,10 +122,10 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
       <main className="pt-28 md:pt-36">
         {/* 2. BREADCRUMB */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-2 pb-5">
-          <p className="font-sans text-xs md:text-sm text-[#8C8377] font-medium tracking-wide flex items-center gap-1.5">
+          <p className="font-sans text-xs md:text-sm text-[#9E978E] font-normal tracking-wide flex items-center gap-1.5">
             <button
               onClick={goHome}
-              className="hover:text-[#2C3E35] hover:underline cursor-pointer transition-colors"
+              className="hover:text-[#28211A] hover:underline cursor-pointer transition-colors"
             >
               Home
             </button>
@@ -133,7 +138,7 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
 
         {/* 3. IMAGEN PRINCIPAL PANELES SOLARES */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="w-full h-[280px] sm:h-[420px] lg:h-[520px] overflow-hidden bg-[#EFECE6] shadow-sm">
+          <div className="w-full h-[280px] sm:h-[420px] lg:h-[520px] overflow-hidden bg-[#EFECE6]">
             <img
               src="/images/logge/foter_panel.png"
               onError={handleImgError}
@@ -146,10 +151,10 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
         {/* 4. DECLARACIÓN DE COMPROMISO & 4 PILARES CON ICONOS */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-28 py-14 md:py-20">
           <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-            <p className="font-sans text-sm sm:text-base text-[#28211A]/85 leading-relaxed font-normal mb-5">
-              En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local y apoya a nuestra comunidad.
+            <p className="font-sans text-sm sm:text-[15px] text-[#28211A] leading-relaxed font-normal mb-5">
+              En Patagonia House estamos comprometidos con un turismo sustentable, que cuida el entorno, valora la cultura local, y apoya a nuestra comunidad.
             </p>
-            <p className="font-sans text-sm sm:text-base text-[#28211A] font-medium">
+            <p className="font-sans text-sm sm:text-[15px] text-[#28211A] font-normal">
               ¡Tú también eres parte de este compromiso!
             </p>
           </div>
@@ -169,10 +174,10 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h2 className="font-sans text-base sm:text-lg text-[#28211A] font-medium mb-2">
+                <h2 className="font-sans text-base sm:text-[18px] text-[#28211A] font-normal mb-2">
                   {pillar.title}
                 </h2>
-                <p className="font-sans text-xs sm:text-sm text-[#28211A]/75 leading-relaxed font-light max-w-sm">
+                <p className="font-sans text-xs sm:text-[13px] text-[#3D3832] leading-relaxed font-normal max-w-sm">
                   {pillar.description}
                 </p>
               </div>
@@ -181,15 +186,15 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
         </section>
 
         {/* 5. GRILLA DE 5 TARJETAS DE BUENAS PRÁCTICAS (2 columnas según Figma) */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-28 pb-16 md:pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <section className="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-28 pb-12 md:pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-12 gap-y-12">
             {sustainabilityCards.map((card) => (
               <article
                 key={card.id}
-                className="bg-[#F4F1EA] flex flex-col overflow-hidden shadow-xs"
+                className="bg-[#EFECE6] flex flex-col overflow-hidden"
               >
                 {/* Imagen superior de tarjeta */}
-                <div className="w-full h-[220px] sm:h-[260px] lg:h-[280px] overflow-hidden bg-[#EFECE6]">
+                <div className="w-full h-[220px] sm:h-[260px] lg:h-[280px] overflow-hidden bg-[#E5E1D8]">
                   <img
                     src={card.image}
                     onError={handleImgError}
@@ -198,12 +203,12 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
                   />
                 </div>
 
-                {/* Contenido textual */}
-                <div className="p-7 sm:p-9 lg:p-10 flex-1 flex flex-col">
-                  <h3 className="font-sans text-base sm:text-lg text-[#28211A] font-medium leading-snug mb-5">
+                {/* Contenido textual con colores exactos de Figma */}
+                <div className="px-8 py-9 sm:px-10 sm:py-10 flex-1 flex flex-col">
+                  <h3 className="font-sans text-lg sm:text-[19px] text-[#28211A] font-normal leading-snug mb-5">
                     {card.title}
                   </h3>
-                  <div className="space-y-3.5 font-sans text-xs sm:text-sm text-[#28211A]/80 leading-relaxed font-light">
+                  <div className="space-y-3.5 font-sans text-[13px] sm:text-sm text-[#3D3832] leading-relaxed font-normal">
                     {card.paragraphs.map((text, idx) => (
                       <p key={idx}>{text}</p>
                     ))}
@@ -215,7 +220,7 @@ export function ElLodge({ lang = 'ES', setLang = () => {}, navigate }) {
         </section>
 
         {/* 6. SELLOS Y CERTIFICACIONES (Distinción Turismo Sustentable & SERNATUR) */}
-        <section className="bg-[#F9F8F5] py-12 md:py-16 border-t border-[#2C3E35]/10">
+        <section className="bg-[#F9F8F5] py-12 md:py-16">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-24 lg:gap-36">
             <div className="h-24 sm:h-28 flex items-center justify-center">
               <img
