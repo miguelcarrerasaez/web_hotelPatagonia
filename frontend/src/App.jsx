@@ -9,7 +9,7 @@ import { BienestarTinajas } from './components/experiences/BienestarTinajas';
 import { PescaMosca } from './components/experiences/PescaMosca';
 import { SalvajeCorazon } from './components/experiences/SalvajeCorazon';
 import { Borek } from './components/gastronomia/Borek';
-
+import { ElLodge } from './components/lodge/ElLodge'; 
 
 export function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -60,6 +60,10 @@ export function App() {
 
   if (currentPath === '/experiencias/salvaje-corazon') {
     return <SalvajeCorazon navigate={navigate} />;
+  }
+
+  if (currentPath === '/lodge') {
+    return <ElLodge navigate={navigate} />;
   }
 
   return <Home navigate={navigate} />;
