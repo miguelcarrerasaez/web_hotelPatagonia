@@ -34,13 +34,27 @@ const roomSlides = [
 ];
 
 export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
+  // Índice para el Hero principal superior
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [isHeroPaused, setIsHeroPaused] = useState(false);
+
+  // Índice independiente para el carrusel de la sección "Cuatro formas de imaginar tu estancia"
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  // Movimiento automático del carrusel cada 3 segundos
+  // Avance automático del Hero principal cada 4.5 segundos
+  useEffect(() => {
+    if (isHeroPaused) return;
+    const heroTimer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % roomSlides.length);
+    }, 4500);
+    return () => clearInterval(heroTimer);
+  }, [isHeroPaused]);
+
+  // Movimiento automático del carrusel inferior cada 3.5 segundos
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % roomSlides.length);
-    }, 3000);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
 
@@ -54,6 +68,18 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
     else window.location.href = path;
   };
 
+  // Controles Hero superior
+  const prevHero = (e) => {
+    e.stopPropagation();
+    setHeroIndex((prev) => (prev === 0 ? roomSlides.length - 1 : prev - 1));
+  };
+
+  const nextHero = (e) => {
+    e.stopPropagation();
+    setHeroIndex((prev) => (prev + 1) % roomSlides.length);
+  };
+
+  // Controles Carrusel inferior
   const prevSlide = () => {
     setCurrentSlideIndex((prev) => (prev === 0 ? roomSlides.length - 1 : prev - 1));
   };
@@ -70,15 +96,97 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
     }
   };
 
+  const activeHeroRoom = roomSlides[heroIndex];
   const currentSlide = roomSlides[currentSlideIndex];
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#28211A] overflow-x-hidden">
-      <Navbar lang={lang} setLang={setLang} darkText={true} navigate={navigate} />
+      {/* Navbar en blanco sobre el Hero */}
+      <Navbar lang={lang} setLang={setLang} darkText={false} navigate={navigate} />
 
-      <main className="pt-28 md:pt-36">
+      {/* 0. HERO CARRUSEL DE HABITACIONES (Pantalla principal) */}
+      <section
+        onMouseEnter={() => setIsHeroPaused(true)}
+        onMouseLeave={() => setIsHeroPaused(false)}
+        onClick={() => handleNavigate(activeHeroRoom.path)}
+        className="relative w-full h-[85vh] lg:h-[840px] bg-[#2C3E35] overflow-hidden cursor-pointer select-none group"
+      >
+        {roomSlides.map((room, idx) => {
+          const isActive = idx === heroIndex;
+          return (
+            <div
+              key={room.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            >
+              <img
+                src={room.image}
+                onError={handleImgError}
+                alt={`Habitación ${room.title}`}
+                className={`w-full h-full object-cover transition-transform duration-[6000ms] ease-out ${
+                  isActive ? 'scale-105' : 'scale-100'
+                }`}
+              />
+              {/* Degradado superior sutil para legibilidad de Navbar e inferior para el título */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/75 pointer-events-none" />
+            </div>
+          );
+        })}
+
+        {/* Flecha Izquierda Hero */}
+        <button
+          onClick={prevHero}
+          aria-label="Habitación anterior"
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/65 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        {/* Flecha Derecha Hero */}
+        <button
+          onClick={nextHero}
+          aria-label="Siguiente habitación"
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/65 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+
+        {/* Textos centrados en la parte inferior según diseño Figma */}
+        <div className="relative z-20 h-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col justify-end items-center text-center pb-14 sm:pb-16">
+          <span className="font-sans text-xs sm:text-sm uppercase tracking-[0.25em] text-white/90 font-medium mb-2 drop-shadow-sm">
+            HABITACIONES
+          </span>
+          <h1 className="font-serif text-white text-4xl sm:text-5xl lg:text-6xl font-normal tracking-wide drop-shadow-md transition-transform duration-300 group-hover:-translate-y-0.5">
+            {activeHeroRoom.title}
+          </h1>
+
+          {/* Puntos de paginación del Hero */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-2.5 mt-6"
+          >
+            {roomSlides.map((room, idx) => (
+              <button
+                key={room.id}
+                onClick={() => setHeroIndex(idx)}
+                aria-label={`Ir a ${room.title}`}
+                className={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
+                  idx === heroIndex ? 'w-10 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <main className="pt-8 md:pt-12">
         {/* 1. BREADCRUMB */}
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-4 pb-4">
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-2 pb-4">
           <p className="font-sans text-xs md:text-sm text-[#8C8377] font-medium tracking-wide flex items-center gap-1.5">
             <button
               onClick={goHome}
@@ -115,9 +223,9 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
                 HABITACIONES - REFUGIO
               </span>
-              <h1 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-5">
+              <h2 className="font-serif text-[#2C3E35] text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-5">
                 Encuentra tu lugar para hacer una pausa
-              </h1>
+              </h2>
               <p className="font-sans text-[#28211A]/80 text-sm sm:text-base leading-relaxed font-light mb-8">
                 Refugios de diseño rodeados de bosque nativo. Cada espacio ha sido pensado para el descanso profundo, con vistas despejadas a la Patagonia y la calidez del fuego siempre encendido.
               </p>
@@ -251,7 +359,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               </div>
             </div>
 
-            {/* Tarjeta 2: Pesca & Exploración (Redirige a /experiencias/pesca-mosca) */}
+            {/* Tarjeta 2: Pesca & Exploración */}
             <div
               onClick={() => handleNavigate('/experiencias/pesca-mosca')}
               className="group cursor-pointer relative h-[420px] sm:h-[460px] overflow-hidden shadow-sm bg-[#EFECE6]"
