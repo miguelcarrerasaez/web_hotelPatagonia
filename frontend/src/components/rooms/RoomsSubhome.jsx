@@ -13,21 +13,21 @@ const roomSlides = [
   {
     id: 'superior',
     title: 'Superior',
-    description: 'Espacios amplios con detalles de madera noble y vistas despejadas a las cumbres de Aysén.',
+    description: 'Un ventanal privado hacia la inmensidad de las cumbres de Aysén.',
     path: '/habitaciones/superior',
     image: '/images/habitacionSuperior.png',
   },
   {
     id: 'junior-suite',
     title: 'Junior Suite',
-    description: 'Amplitud de diseño, chimenea privada a leña y ventanales panorámicos al valle de Coyhaique.',
+    description: 'Amplitud y lujo de autor diseñados para el descanso en grupo.',
     path: '/habitaciones/junior-suite',
     image: '/images/habitacionJuniorSuite.png',
   },
   {
     id: 'apartment',
     title: 'Apartment',
-    description: 'Residencia privada de 130 m² con 3 dormitorios independientes, cocina equipada y chimenea.',
+    description: 'Independencia absoluta y máxima privacidad exclusiva.',
     path: '/habitaciones/apartment',
     image: '/images/habitacionApartment.png',
   },
@@ -38,9 +38,6 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
   const [heroIndex, setHeroIndex] = useState(0);
   const [isHeroPaused, setIsHeroPaused] = useState(false);
 
-  // Índice independiente para el carrusel de la sección "Cuatro formas de imaginar tu estancia"
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
   // Avance automático del Hero principal cada 4.5 segundos
   useEffect(() => {
     if (isHeroPaused) return;
@@ -49,14 +46,6 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
     }, 4500);
     return () => clearInterval(heroTimer);
   }, [isHeroPaused]);
-
-  // Movimiento automático del carrusel inferior cada 3.5 segundos
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlideIndex((prev) => (prev + 1) % roomSlides.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, []);
 
   const goHome = () => {
     if (navigate) navigate('/');
@@ -79,15 +68,6 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
     setHeroIndex((prev) => (prev + 1) % roomSlides.length);
   };
 
-  // Controles Carrusel inferior
-  const prevSlide = () => {
-    setCurrentSlideIndex((prev) => (prev === 0 ? roomSlides.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentSlideIndex((prev) => (prev + 1) % roomSlides.length);
-  };
-
   const handleImgError = (e) => {
     if (e.target.src.endsWith('.png')) {
       e.target.src = e.target.src.replace('.png', '.jpg');
@@ -97,7 +77,6 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
   };
 
   const activeHeroRoom = roomSlides[heroIndex];
-  const currentSlide = roomSlides[currentSlideIndex];
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#28211A] overflow-x-hidden">
@@ -231,7 +210,7 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
               </p>
               <div>
                 <a
-                  href="#carrusel-habitaciones"
+                  href="#catalogo-habitaciones"
                   className="inline-block bg-[#2C3E35] text-white font-sans text-xs sm:text-sm tracking-wider uppercase px-6 py-3.5 hover:bg-[#1f2d26] transition-colors"
                 >
                   Ver refugios y suites
@@ -241,9 +220,9 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
           </div>
         </section>
 
-        {/* 3. CARRUSEL "CUATRO FORMAS DE IMAGINAR TU ESTANCIA" */}
-        <section id="carrusel-habitaciones" className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
-          <div className="mb-8">
+        {/* 3. GRILLA 2x2 "CUATRO FORMAS DE IMAGINAR TU ESTANCIA" */}
+        <section id="catalogo-habitaciones" className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
+          <div className="mb-10">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C8377] font-medium block mb-2">
               HABITACIONES
             </span>
@@ -255,64 +234,40 @@ export function RoomsSubhome({ lang = 'ES', setLang = () => {}, navigate }) {
             </p>
           </div>
 
-          <div className="relative w-full h-[420px] sm:h-[520px] lg:h-[580px] overflow-hidden bg-[#EFECE6] shadow-sm group">
-            <img
-              src={currentSlide.image}
-              onError={handleImgError}
-              alt={currentSlide.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-in-out"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 sm:p-12 flex flex-col justify-end text-white">
-              <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl mb-2">
-                {currentSlide.title}
-              </h3>
-              <p className="font-sans text-sm sm:text-base text-white/90 max-w-lg mb-4 font-light">
-                {currentSlide.description}
-              </p>
-              <div>
-                <button
-                  onClick={() => handleNavigate(currentSlide.path)}
-                  className="font-sans text-xs uppercase tracking-wider underline underline-offset-4 hover:text-[#C88E4B] transition-colors cursor-pointer"
-                >
-                  Ver habitaciones
-                </button>
-              </div>
-            </div>
-
-            {/* Flechas */}
-            <button
-              onClick={prevSlide}
-              aria-label="Anterior"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer z-10"
-            >
-              <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-
-            <button
-              onClick={nextSlide}
-              aria-label="Siguiente"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all cursor-pointer z-10"
-            >
-              <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </button>
-
-            {/* Puntos de Paginación */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-              {roomSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlideIndex(idx)}
-                  className={`h-2 transition-all rounded-full cursor-pointer ${
-                    idx === currentSlideIndex ? 'w-8 bg-white' : 'w-2 bg-white/50'
-                  }`}
+          {/* Grilla 2x2 según referencia Figma (663x452 aprox.) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {roomSlides.map((room) => (
+              <div
+                key={room.id}
+                onClick={() => handleNavigate(room.path)}
+                className="relative w-full h-[360px] sm:h-[420px] lg:h-[452px] overflow-hidden bg-[#EFECE6] shadow-sm group cursor-pointer"
+              >
+                <img
+                  src={room.image}
+                  onError={handleImgError}
+                  alt={room.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-              ))}
-            </div>
+
+                {/* Degradado inferior para lectura limpia sobre la fotografía */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+
+                {/* Contenido en la esquina inferior izquierda (padding 38px en desktop) */}
+                <div className="absolute inset-0 p-7 sm:p-[38px] flex flex-col justify-end text-white z-10">
+                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal mb-1.5">
+                    {room.title}
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed mb-3 max-w-md">
+                    {room.description}
+                  </p>
+                  <div>
+                    <span className="inline-block font-sans text-xs sm:text-sm text-white underline underline-offset-4 group-hover:text-[#C88E4B] transition-colors">
+                      Ver habitaciones
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
